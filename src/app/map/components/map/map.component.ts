@@ -48,9 +48,13 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
 
     for (let es of this.ecoStations) {
       new mapboxgl.Marker({
-        color: '#00FF00',
+        color: '#00D060',
       })
         .setLngLat(es.geo)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(`<h3>${es.name}</h3><p>${es.wasteTypes}</p>`)
+        )
         .addTo(map);
     }
   }
