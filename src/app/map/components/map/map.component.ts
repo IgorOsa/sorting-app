@@ -4,21 +4,26 @@ import {
   OnChanges,
   OnInit,
   SimpleChanges,
+  ViewEncapsulation,
 } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { Subject } from 'rxjs';
 import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   public map!: mapboxgl.Map;
   public ecoStations!: any;
+  public geoJsonData!: any;
   public center!: any;
   public zoom!: any;
   public style!: string | undefined;
+  eventsSubject: Subject<any> = new Subject<any>();
 
   constructor(private dataService: DataService) {
     this.ecoStations = this.dataService.store$.value.ecoStations;
@@ -31,6 +36,7 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
     console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
+      this.geoJsonData = store.geoJsonData;
     });
   }
 
@@ -43,23 +49,15 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   mapLoadEvent(map: mapboxgl.Map) {
-    console.log('map loaded');
+    // console.log('map loaded');
     this.map = map;
-
-    for (let es of this.ecoStations) {
-      new mapboxgl.Marker({
-        color: '#00D060',
-      })
-        .setLngLat(es.geo)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(`<h3>${es.name}</h3><p>${es.wasteTypes}</p>`)
-        )
-        .addTo(map);
-    }
   }
 
-  mapClickEvent(event: any) {
+  mapClickEventHandler(event: any) {
+    this.eventsSubject.next(event);
+  }
+
+  markerClickEventHandler(event: any) {
     console.log(event);
   }
 }

@@ -3,9 +3,15 @@
   [zoom]="zoom"
   [center]="center"
   (mapLoad)="mapLoadEvent($event)"
-  (mapClick)="mapClickEvent($event)"
+  (mapClick)="mapClickEventHandler($event)"
 >
   <mgl-control mglFullscreen></mgl-control>
   <mgl-control mglNavigation></mgl-control>
   <mgl-control mglGeolocate></mgl-control>
+  <app-marker
+    *ngFor="let es of ecoStations"
+    [es]="es"
+    [map]="map"
+    [events]="eventsSubject.asObservable()"
+  ></app-marker>
 </mgl-map>
