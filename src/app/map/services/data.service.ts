@@ -1,0 +1,83 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ecoServiceEntity } from 'src/app/interfaces/ecoService.entity';
+
+export interface DataServiceStore {
+  mapDefaults: {
+    zoom: number[];
+    center: number[];
+    style: string;
+  };
+  ecoStations: ecoServiceEntity[];
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DataService {
+  store$!: BehaviorSubject<DataServiceStore>;
+
+  constructor() {
+    this.store$ = new BehaviorSubject<DataServiceStore>({
+      mapDefaults: {
+        zoom: [9.5],
+        center: [30.34, 59.95],
+        style: 'mapbox://styles/mapbox/streets-v11',
+      },
+      ecoStations: [
+        {
+          id: 1,
+          name: 'Test eco point #1',
+          geo: {
+            lng: 30.367395705072454,
+            lat: 59.99737697937698,
+          },
+          wasteTypes: ['organic', 'plastic', 'paper', 'metal'],
+          payed: 'free',
+          delivery: 'none',
+        },
+        {
+          id: 2,
+          name: 'Test eco point #2',
+          geo: {
+            lng: 30.20540431990662,
+            lat: 59.94886059146165,
+          },
+          wasteTypes: ['plastic', 'paper', 'metal'],
+          payed: 'payed',
+          delivery: 'none',
+        },
+        {
+          id: 3,
+          name: 'Test eco point #3',
+          geo: {
+            lng: 30.46935736099016,
+            lat: 59.940030060436925,
+          },
+          wasteTypes: ['plastic', 'paper', 'metal'],
+          payed: 'payed',
+          delivery: 'apartment',
+        },
+        {
+          id: 4,
+          name: 'Test eco point #4',
+          geo: {
+            lng: 30.367395705072454,
+            lat: 59.85187260839879,
+          },
+          wasteTypes: ['plastic', 'paper', 'metal'],
+          payed: 'payed',
+          delivery: 'location',
+        },
+        {
+          id: 5,
+          name: 'Test eco point #5',
+          geo: { lng: 30.175983843433045, lat: 59.84727393859424 },
+          wasteTypes: ['metal'],
+          payed: 'payed',
+          delivery: 'none',
+        },
+      ],
+    });
+  }
+}
