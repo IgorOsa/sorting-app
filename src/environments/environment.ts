@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   mapboxAccessToken: '',
-  // 'pk.eyJ1IjoiYXBwc29ydGluZyIsImEiOiJja3d3YjlvZ2kwMXp5MnFxdDBva2JnMHl1In0.mVmQOtu-2Y-ZvdrahX3sKg',
 };
 
 /*
