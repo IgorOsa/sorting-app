@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ecoServiceEntity } from 'src/app/interfaces/ecoService.entity';
+import { ecoServiceEntity } from '../../../../../core/interfaces/ecoService.entity';
 
 @Component({
   selector: 'app-marker',

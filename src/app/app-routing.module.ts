@@ -5,7 +5,7 @@ import { LoginComponent } from './modules/user/components/login/login.component'
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
+    loadChildren: () => import('./modules/map/map.module').then((m) => m.MapModule),
   },
   {
     path: 'login',
