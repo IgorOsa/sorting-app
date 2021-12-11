@@ -8,6 +8,7 @@ export interface DataServiceStore {
     center: number[];
     style: string;
   };
+  geoJsonData?: any;
   ecoStations: ecoServiceEntity[];
 }
 
@@ -23,6 +24,24 @@ export class DataService {
         zoom: [9.5],
         center: [30.34, 59.95],
         style: 'mapbox://styles/mapbox/streets-v11',
+      },
+      geoJsonData: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: [
+            {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [30.367395705072454, 59.99737697937698],
+              },
+              properties: {
+                title: 'Test eco point #1',
+              },
+            },
+          ],
+        },
       },
       ecoStations: [
         {

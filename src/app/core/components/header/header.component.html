@@ -1,5 +1,7 @@
 <div class="header">
-  <div class="header__logo">EcoSearch</div>
+  <div class="header__logo" (click)="goToRoute('/')">EcoSearch</div>
   <span class="spacer"></span>
-  <button class="header__btn" mat-raised-button>Login</button>
+  <button class="header__btn" mat-raised-button (click)="goToRoute('/login')">
+    Login
+  </button>
 </div>
