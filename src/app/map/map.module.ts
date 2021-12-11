@@ -5,11 +5,11 @@ import { MapRoutingModule } from './map-routing.module';
 import { environment } from '../../environments/environment';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MarkerComponent } from './components/marker/marker/marker.component';
-import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { HeaderComponent } from '../core/components/header/header.component';
 
 @NgModule({
-  declarations: [HeaderComponent, MapComponent, MarkerComponent],
+  declarations: [MapComponent, MarkerComponent, HeaderComponent],
   imports: [
     CommonModule,
     MapRoutingModule,

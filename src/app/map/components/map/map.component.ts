@@ -36,7 +36,7 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
     console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
-      this.geoJsonData = store.geoJsonData;
+      // this.geoJsonData = store.geoJsonData;
     });
   }
 
