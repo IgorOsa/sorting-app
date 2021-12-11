@@ -4,8 +4,12 @@ mgl-map {
   width: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 719px) {
   mgl-map {
     height: 100%;
+  }
+
+  .app__header {
+    display: none;
   }
 }
