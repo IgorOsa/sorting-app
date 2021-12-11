@@ -4,8 +4,8 @@ export interface City {
 }
 
 export interface GeoLocation {
-  lng: string | number; // 30.46935736099016
-  lat: string | number; // 59.940030060436925
+  lng: number; // 30.46935736099016
+  lat: number; // 59.940030060436925
 }
 
 export interface Photo {
@@ -24,7 +24,7 @@ export interface ecoServiceEntity {
   phone?: string; // (921) 111-11-11,
   address?: string; // 'Расстанный переулок, д. 1',
   photos?: Photo[]; // array of photos or empty [] if no
-  payed: 'free' | 'payed';
+  payed: boolean; // 'free' | 'payed';
   paidComment?: string; // maybe some price info
   delivery: 'none' | 'apartment' | 'street' | 'location';
 }
