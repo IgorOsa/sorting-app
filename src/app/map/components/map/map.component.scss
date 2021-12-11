@@ -3,3 +3,9 @@ mgl-map {
   height: calc(100% - 88px);
   width: 100%;
 }
+
+@media (max-width: 500px) {
+  mgl-map {
+    height: 100%;
+  }
+}
