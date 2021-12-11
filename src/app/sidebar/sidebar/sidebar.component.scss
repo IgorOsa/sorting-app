@@ -1,0 +1,40 @@
+mat-tree {
+  margin: 15px;
+  background: #49a67f;
+}
+
+/*mat-tree-node {*/
+/*  border: 1px solid #633d22;*/
+/*  margin-bottom: 20px;*/
+/*  background: white;*/
+/*}*/
+
+.mat-tree-node-container {
+  margin: 20px 0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: white;
+  color: #88410e;
+  font-size: 20px;
+
+  button {
+    border: none;
+    background: none;
+  }
+
+  .item-container {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0 10px;
+    }
+  }
+}
+
+.mat-tree-node-content {
+  background: #e3dddd;
+}

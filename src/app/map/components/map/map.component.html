@@ -1,0 +1,11 @@
+<mgl-map
+  [style]="style"
+  [zoom]="zoom"
+  [center]="center"
+  (mapLoad)="mapLoadEvent($event)"
+  (mapClick)="mapClickEvent($event)"
+>
+  <mgl-control mglFullscreen></mgl-control>
+  <mgl-control mglNavigation></mgl-control>
+  <mgl-control mglGeolocate></mgl-control>
+</mgl-map>

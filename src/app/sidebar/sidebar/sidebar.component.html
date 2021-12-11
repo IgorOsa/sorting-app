@@ -1,0 +1,21 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node" class="mat-tree-node-content" matTreeNodePadding matTreeNodeToggle>
+    <button disabled mat-icon-button></button>
+    <mat-checkbox (change)="todoLeafItemSelectionToggle(node)"
+                  [checked]="checklistSelection.isSelected(node)"
+                  class="checklist-leaf-node">{{node.item}}</mat-checkbox>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" class="mat-tree-node-container" matTreeNodePadding>
+    <div class="item-container">
+      <img alt="Types Icon" src="assets/types_icon.svg">
+      <p>{{node.item}}</p>
+    </div>
+    <button [attr.aria-label]="'Toggle ' + node.item" mat-icon-button
+            matTreeNodeToggle>
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+  </mat-tree-node>
+</mat-tree>
