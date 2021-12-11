@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ecoServiceEntity } from '../../../../../core/interfaces/ecoService.entity';
+import { ecoServiceEntity } from '../../../../core/interfaces/ecoService.entity';
 
 @Component({
   selector: 'app-marker',
@@ -36,9 +36,11 @@ export class MarkerComponent implements OnInit, OnDestroy {
 
   markerClickHandler() {
     this.map.flyTo({
+      offset: [0, 70],
       center: this.es.geo,
       essential: true,
       animate: true,
+      zoom: 9.5,
     });
   }
 }

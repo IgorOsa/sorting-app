@@ -4,11 +4,12 @@ import { MapComponent } from './components/map/map.component';
 import { MapRoutingModule } from './map-routing.module';
 import { environment } from '../../../environments/environment';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
-import { MarkerComponent } from './components/marker/marker/marker.component';
+import { MarkerComponent } from './components/marker/marker.component';
 import { SharedModule } from '../../shared/shared.module';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
-  declarations: [MapComponent, MarkerComponent],
+  declarations: [MapComponent, MarkerComponent, PopupComponent],
   imports: [
     CommonModule,
     MapRoutingModule,
