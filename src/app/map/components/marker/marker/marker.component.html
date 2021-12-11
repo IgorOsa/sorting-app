@@ -1,0 +1,23 @@
+<mgl-marker [lngLat]="[es.geo.lng, es.geo.lat]" anchor="bottom" #myMarker>
+  <div class="marker" (click)="markerClickHandler()"></div>
+</mgl-marker>
+<mgl-popup
+  [marker]="myMarker"
+  maxWidth="auto"
+  [closeButton]="false"
+  anchor="bottom"
+  [offset]="45"
+>
+  <h3 class="mapboxgl-popup-header">{{ es?.name }}</h3>
+  <h4 class="mapboxgl-popup__heading" *ngIf="es?.phone || es?.address">
+    Contacts:
+  </h4>
+  <p class="mapboxgl-popup__text">{{ es?.phone }}</p>
+  <p class="mapboxgl-popup__text">{{ es?.address }}</p>
+  <h4 class="mapboxgl-popup__heading">Waste types:</h4>
+  <p class="mapboxgl-popup__text">{{ es?.wasteTypes }}</p>
+  <h4 class="mapboxgl-popup__heading">Payment:</h4>
+  <p class="mapboxgl-popup__text">{{ es?.paidComment }}</p>
+  <h4 class="mapboxgl-popup__heading">Delivery:</h4>
+  <p class="mapboxgl-popup__text">{{ es?.delivery }}</p>
+</mgl-popup>
