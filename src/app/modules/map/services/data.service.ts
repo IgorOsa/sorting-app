@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ecoServiceEntity } from 'src/app/interfaces/ecoService.entity';
+import { ecoServiceEntity } from '../../../core/interfaces/ecoService.entity';
 
 export interface DataServiceStore {
   mapDefaults: {

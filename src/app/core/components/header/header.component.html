@@ -1,7 +1,21 @@
 <div class="header">
   <div class="header__logo" (click)="goToRoute('/')">EcoSearch</div>
   <span class="spacer"></span>
-  <button class="header__btn" mat-raised-button (click)="goToRoute('/login')">
+  <button
+    *ngIf="!isLoggedIn"
+    class="header__btn"
+    mat-raised-button
+    (click)="goToRoute('/login')"
+  >
     Login
+  </button>
+  <button
+    *ngIf="isLoggedIn"
+    class="header__logout-btn"
+    mat-icon-button
+    (click)="logout()"
+  >
+    <mat-icon svgIcon="logout" aria-hidden="false" aria-label="logout">
+    </mat-icon>
   </button>
 </div>

@@ -8,6 +8,7 @@
 }
 
 .login__header {
+  min-width: 250px;
   font-family: Sansita One;
   font-style: normal;
   font-weight: normal;
@@ -23,7 +24,8 @@
 }
 
 .login-form__container {
-  width: 500px;
+  min-width: 400px;
+  max-width: 500px;
   height: 360px;
   background: #ffffff;
   border-radius: 10px;

@@ -1,0 +1,15 @@
+mgl-map {
+  position: absolute;
+  height: calc(100% - 88px);
+  width: 100%;
+}
+
+@media (max-width: 719px) {
+  mgl-map {
+    height: 100%;
+  }
+
+  .app__header {
+    display: none;
+  }
+}
