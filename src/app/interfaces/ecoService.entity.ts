@@ -4,8 +4,8 @@ export interface City {
 }
 
 export interface GeoLocation {
-  lng: string | number; // 30.46935736099016
-  lat: string | number; // 59.940030060436925
+  lng: number; // 30.46935736099016
+  lat: number; // 59.940030060436925
 }
 
 export interface Photo {

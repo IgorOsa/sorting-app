@@ -1,0 +1,18 @@
+<div class="login__container">
+  <h2 class="login__header">Manager login</h2>
+  <form class="login-form" [formGroup]="loginForm" (submit)="login()">
+    <mat-card class="login-form__container">
+      <div class="input__container">
+        <label class="input__label">Username</label>
+        <input type="text" formControlName="username" class="form__input" />
+      </div>
+      <div class="input__container">
+        <label class="input__label">Password</label>
+        <input formControlName="password" type="password" class="form__input" />
+      </div>
+      <button class="form__btn" mat-raised-button [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </mat-card>
+  </form>
+</div>

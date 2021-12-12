@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ecoServiceEntity } from 'src/app/interfaces/ecoService.entity';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {ecoServiceEntity} from "../../interfaces/ecoService.entity";
 
 export interface DataServiceStore {
   mapDefaults: {
@@ -8,6 +8,7 @@ export interface DataServiceStore {
     center: number[];
     style: string;
   };
+  geoJsonData?: any;
   ecoStations: ecoServiceEntity[];
 }
 
@@ -24,6 +25,24 @@ export class DataService {
         center: [30.34, 59.95],
         style: 'mapbox://styles/mapbox/streets-v11',
       },
+      geoJsonData: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: [
+            {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [30.367395705072454, 59.99737697937698],
+              },
+              properties: {
+                title: 'Test eco point #1',
+              },
+            },
+          ],
+        },
+      },
       ecoStations: [
         {
           id: 1,
@@ -33,8 +52,10 @@ export class DataService {
             lat: 59.99737697937698,
           },
           wasteTypes: ['organic', 'plastic', 'paper', 'metal'],
-          payed: 'free',
+          payed: "payed",
           delivery: 'none',
+          phone: '(900)111-11-11',
+          address: 'Spb',
         },
         {
           id: 2,
@@ -44,7 +65,8 @@ export class DataService {
             lat: 59.94886059146165,
           },
           wasteTypes: ['plastic', 'paper', 'metal'],
-          payed: 'payed',
+          payed: "free",
+          paidComment: '15RUB/kg',
           delivery: 'none',
         },
         {
@@ -55,7 +77,8 @@ export class DataService {
             lat: 59.940030060436925,
           },
           wasteTypes: ['plastic', 'paper', 'metal'],
-          payed: 'payed',
+          payed: 'free',
+          paidComment: '15RUB/kg',
           delivery: 'apartment',
         },
         {
@@ -67,14 +90,16 @@ export class DataService {
           },
           wasteTypes: ['plastic', 'paper', 'metal'],
           payed: 'payed',
+          paidComment: '15RUB/kg',
           delivery: 'location',
         },
         {
           id: 5,
           name: 'Test eco point #5',
-          geo: { lng: 30.175983843433045, lat: 59.84727393859424 },
+          geo: {lng: 30.175983843433045, lat: 59.84727393859424},
           wasteTypes: ['metal'],
           payed: 'payed',
+          paidComment: '15RUB/kg',
           delivery: 'none',
         },
       ],

@@ -1,0 +1,37 @@
+.marker {
+  background-image: url("/assets/marker.svg");
+  background-size: 100%;
+  width: 32px;
+  height: 54px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #00d060;
+}
+
+.mapboxgl-popup {
+  font-size: 22px;
+}
+
+.mapboxgl-popup-content {
+  padding: 20px;
+}
+
+.mapboxgl-popup-header {
+  font-weight: 400;
+  color: #88410e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mapboxgl-popup__heading {
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.mapboxgl-popup__text {
+  margin-bottom: 10px;
+  padding-left: 50px;
+}
