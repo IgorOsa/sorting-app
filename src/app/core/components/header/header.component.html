@@ -1,25 +1,26 @@
 <div class="header__desktop">
   <div class="header__logo" (click)="goToRoute('/')">EcoSearch</div>
   <span class="spacer"></span>
-  <div class="header__btn-wrapper">
-    <button
-      *ngIf="!isLoggedIn"
-      class="header__btn_signup"
-      mat-raised-button
-      (click)="goToRoute('/register')"
-    >
-      Sign up
-    </button>
-    <button
-      *ngIf="!isLoggedIn"
-      class="header__btn"
-      mat-raised-button
-      (click)="goToRoute('/login')"
-    >
-      Login
-    </button>
-  </div>
   <app-user-icons *ngIf="isLoggedIn" (logoutEvent)="logout()"></app-user-icons>
+</div>
+
+<div class="header__btn-wrapper">
+  <button
+    *ngIf="!isLoggedIn"
+    class="header__btn_signup"
+    mat-raised-button
+    (click)="goToRoute('/register')"
+  >
+    Sign up
+  </button>
+  <button
+    *ngIf="!isLoggedIn"
+    class="header__btn"
+    mat-raised-button
+    (click)="goToRoute('/login')"
+  >
+    Login
+  </button>
 </div>
 
 <div *ngIf="isLoggedIn" class="header__tablet header__mobile">
