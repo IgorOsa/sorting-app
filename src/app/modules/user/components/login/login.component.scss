@@ -68,3 +68,9 @@
   font-size: 20px;
   color: #ffffff;
 }
+
+@media (max-width: 719px) {
+  .login__container {
+    padding-bottom: 88px;
+  }
+}

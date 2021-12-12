@@ -30,7 +30,7 @@
 }
 
 .header__btn {
-  min-width: 90px;
+  min-width: 89px;
   height: 40px;
   border-radius: 5px;
   margin: 24px;
@@ -38,6 +38,18 @@
   font-style: normal;
   font-weight: normal;
   background: rgba(255, 255, 255, 0.8);
+}
+
+.header__btn_signup {
+  min-width: 89px;
+  height: 40px;
+  color: #f4f4f4;
+  background: rgba(81, 77, 77, 0.8);
+  border: 1px solid #f4f4f4 !important;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 17px !important;
 }
 
 .header__tablet,
