@@ -1,0 +1,40 @@
+<div class="register__container">
+  <h2 class="register__header">Sign up</h2>
+  <form (submit)="createUser()" [formGroup]="registerForm" class="register-form">
+    <mat-card class="register-form__container">
+      <div class="input__container">
+        <label class="input__label">Username <span>*</span></label>
+        <input class="form__input" formControlName="username" type="text"/>
+      </div>
+      <div class="input__container">
+        <label class="input__label">Password <span>*</span></label>
+        <input class="form__input" formControlName="password" type="password"/>
+      </div>
+      <div class="input__container">
+        <label class="input__label">Email <span>*</span></label>
+        <input class="form__input" formControlName="email" type="text"/>
+      </div>
+      <div class="input__container">
+        <label class="input__label">Avatar</label>
+        <div class="upload__input">
+          <div *ngIf="imageURL && imageURL !== ''" class="imagePreview">
+            <img [alt]="registerForm.value.name" [src]="imageURL">
+          </div>
+          <input #fileInput (change)="showPreview($event)" accept="image/*" class="form__input" formControlName="avatar"
+                 style="display: none" type="file"/>
+          <button (click)="fileInput.click()" class="btn upload__btn" mat-raised-button>Upload avatar</button>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button [disabled]="!registerForm.valid" class="btn form__btn" mat-raised-button>
+          Sign up
+        </button>
+        <button (click)="cancel()" class="btn cancel__btn" mat-raised-button>
+          Cancel
+        </button>
+      </div>
+    </mat-card>
+  </form>
+</div>
+

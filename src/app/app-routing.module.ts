@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/user/components/login/login.component';
+import { RegisterComponent } from './modules/user/components/register/register.component';
 
 const routes: Routes = [
   {
@@ -9,11 +10,18 @@ const routes: Routes = [
       import('./modules/map/map.module').then((m) => m.MapModule),
   },
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
     path: 'user',
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),
   },
-  { path: 'login', redirectTo: 'user/login' },
   { path: '**', redirectTo: '' },
 ];
 
