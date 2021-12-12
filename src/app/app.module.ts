@@ -8,9 +8,10 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { fakeBackendProvider } from './core/fake-backend';
 import { HttpClientModule } from '@angular/common/http';
+import { UserIconsComponent } from './core/components/user-icons/user-icons.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, UserIconsComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,

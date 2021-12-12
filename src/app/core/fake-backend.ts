@@ -18,6 +18,13 @@ const users = [
     firstName: 'Sorting',
     lastName: 'Expert',
   },
+  {
+    id: 2,
+    username: 'Pyotr123',
+    password: 'password',
+    firstName: 'Pyotr',
+    lastName: ' Green',
+  },
 ];
 
 @Injectable()

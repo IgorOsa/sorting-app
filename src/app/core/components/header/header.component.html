@@ -9,13 +9,5 @@
   >
     Login
   </button>
-  <button
-    *ngIf="isLoggedIn"
-    class="header__logout-btn"
-    mat-icon-button
-    (click)="logout()"
-  >
-    <mat-icon svgIcon="logout" aria-hidden="false" aria-label="logout">
-    </mat-icon>
-  </button>
+  <app-user-icons *ngIf="isLoggedIn" (logoutEvent)="logout()"></app-user-icons>
 </div>
