@@ -9,9 +9,15 @@ import { SharedModule } from './shared/shared.module';
 import { fakeBackendProvider } from './core/fake-backend';
 import { HttpClientModule } from '@angular/common/http';
 import { UserIconsComponent } from './core/components/user-icons/user-icons.component';
+import { UserAvatarComponent } from './core/components/user-avatar/user-avatar.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, UserIconsComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    UserIconsComponent,
+    UserAvatarComponent,
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
