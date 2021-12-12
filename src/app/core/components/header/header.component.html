@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header__desktop">
   <div class="header__logo" (click)="goToRoute('/')">EcoSearch</div>
   <span class="spacer"></span>
   <button
@@ -10,4 +10,13 @@
     Login
   </button>
   <app-user-icons *ngIf="isLoggedIn" (logoutEvent)="logout()"></app-user-icons>
+</div>
+
+<div class="header__tablet header__mobile">
+  <app-user-avatar></app-user-avatar>
+  <div class="menu-wrapper">
+    <button class="header__menu" mat-icon-button aria-label="Menu icon">
+      <mat-icon class="header__menu-icon">menu</mat-icon>
+    </button>
+  </div>
 </div>

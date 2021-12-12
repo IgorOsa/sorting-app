@@ -49,7 +49,6 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   mapLoadEvent(map: mapboxgl.Map) {
-    // console.log('map loaded');
     this.map = map;
   }
 
