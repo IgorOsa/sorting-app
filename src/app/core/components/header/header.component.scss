@@ -35,6 +35,11 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
+.header__logout-btn {
+  align-self: center;
+  margin-right: 19px;
+}
+
 @media (max-width: 499px) {
   .header__btn {
     display: none;
