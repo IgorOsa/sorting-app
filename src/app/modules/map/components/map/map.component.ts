@@ -19,11 +19,9 @@ import { DataService } from '../../services/data.service';
 export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   public map!: mapboxgl.Map;
   public ecoStations!: any;
-  public geoJsonData!: any;
   public center!: any;
   public zoom!: any;
   public style!: string | undefined;
-  public toolbarData!: any;
   eventsSubject: Subject<any> = new Subject<any>();
 
   constructor(private dataService: DataService) {
@@ -31,15 +29,12 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
     this.center = this.dataService.store$.value.mapDefaults.center;
     this.zoom = this.dataService.store$.value.mapDefaults.zoom;
     this.style = this.dataService.store$.value.mapDefaults.style;
-
-    this.toolbarData = this.dataService.store$.value.toolbarData;
   }
 
   ngOnInit(): void {
     console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
-      // this.geoJsonData = store.geoJsonData;
     });
   }
 
