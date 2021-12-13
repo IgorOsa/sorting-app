@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 398px;
+  width: 398px;
   height: 88px;
   color: #ffffff;
   background-color: #91572e;
@@ -26,6 +26,12 @@
   border-radius: 0px 10px 10px 10px;
   padding: 23px 69px 23px 75px;
   cursor: pointer;
+}
+
+@media (max-width: 899px) {
+  .header__logo {
+    width: 300px;
+  }
 }
 
 .header__btn-wrapper {

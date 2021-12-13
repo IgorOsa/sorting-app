@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-accordion class="accordion">
+      <mat-expansion-panel
+        (closed)="wasteTypesPanelOpenState = false"
+        (opened)="wasteTypesPanelOpenState = true"
+        class="panel-container"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <img alt="waste type icon" src="assets/types.svg" />
+            <p>Waste Types</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list>
+          <mat-list-option
+            *ngFor="let wasteType of wasteTypes"
+            [value]="wasteType"
+          >
+            {{ wasteType }}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="accordion">
+      <mat-expansion-panel
+        (closed)="paymentPanelOpenState = false"
+        (opened)="paymentPanelOpenState = true"
+        class="panel-container"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <img alt="payment icon" src="assets/payment.svg" />
+            <p>Payment</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list>
+          <mat-list-option
+            *ngFor="let payment of paymentTypes"
+            [value]="payment"
+          >
+            {{ payment }}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion class="accordion">
+      <mat-expansion-panel
+        (closed)="deliveryPanelOpenState = false"
+        (opened)="deliveryPanelOpenState = true"
+        class="panel-container"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <img alt="delivery icon" src="assets/delivery.svg" />
+            <p>Delivery</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group [(ngModel)]="selectedDeliveryType">
+          <mat-radio-button
+            *ngFor="let delivery of deliveryTypes"
+            [value]="delivery"
+          >
+            {{ delivery }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+</mat-sidenav-container>
