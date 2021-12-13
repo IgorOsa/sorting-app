@@ -1,14 +1,18 @@
-.header {
+.header__desktop {
+  width: 100%;
+  position: absolute;
+  top: 0;
   background-color: #633d22;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .header__logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 398px;
+  width: 398px;
   height: 88px;
   color: #ffffff;
   background-color: #91572e;
@@ -24,8 +28,23 @@
   cursor: pointer;
 }
 
+@media (max-width: 899px) {
+  .header__logo {
+    width: 300px;
+  }
+}
+
+.header__btn-wrapper {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  align-self: center;
+  margin-right: 22px;
+  z-index: 1;
+}
+
 .header__btn {
-  min-width: 90px;
+  min-width: 89px;
   height: 40px;
   border-radius: 5px;
   margin: 24px;
@@ -35,13 +54,57 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
-.header__logout-btn {
-  align-self: center;
-  margin-right: 19px;
+.header__btn_signup {
+  min-width: 89px;
+  height: 40px;
+  color: #f4f4f4;
+  background: rgba(81, 77, 77, 0.8);
+  border: 1px solid #f4f4f4 !important;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 17px !important;
+}
+
+.header__tablet,
+.header__mobile {
+  display: none;
+}
+
+.header__menu {
+  position: absolute;
+}
+
+@media (max-width: 719px) {
+  .header__tablet,
+  .header__mobile {
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 0;
+    z-index: 1;
+  }
+
+  .menu-wrapper {
+    width: 50px;
+    height: 50px;
+    background: #91572e;
+    border-radius: 6.25px;
+    color: #fff;
+  }
+
+  .header__menu {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .user-avatar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 35px;
+  }
 }
 
 @media (max-width: 499px) {
-  .header__btn {
-    display: none;
-  }
 }

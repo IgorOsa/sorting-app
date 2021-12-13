@@ -1,0 +1,25 @@
+app-user-avatar {
+  display: flex;
+}
+
+.user-icons {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.header__username {
+  font-size: 20px;
+  line-height: 23px;
+  align-self: center;
+  color: #ffffff;
+  margin-right: 15px;
+}
+
+.header__logout-btn {
+  align-self: center;
+  margin-right: 19px;
+}

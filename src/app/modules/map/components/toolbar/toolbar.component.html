@@ -1,0 +1,71 @@
+<mat-toolbar class="toolbar">
+  <button
+    mat-icon-button
+    class="icon__types"
+    aria-label="Waste types filter"
+    [matMenuTriggerFor]="typesMenu"
+    (click)="toggleMenu('types')"
+  >
+    <img class="toolbar__btn_icon" src="/assets/types.svg" alt="Types" />
+    <span class="toolbar__btn_text">Types</span>
+  </button>
+  <mat-menu #typesMenu="matMenu" yPosition="above" [formGroup]="typesFormGroup">
+    <section class="toolbar-menu" [formGroup]="typesFormGroup">
+      <p *ngFor="let type of toolbarData.types">
+        <mat-checkbox
+          formControlName="{{ type }}"
+          (click)="$event.stopPropagation()"
+          >{{ type }}</mat-checkbox
+        >
+      </p>
+    </section>
+  </mat-menu>
+
+  <button
+    mat-icon-button
+    class="icon__payment"
+    aria-label="Waste payment filter"
+    [matMenuTriggerFor]="paymentMenu"
+    (click)="toggleMenu('payment')"
+  >
+    <img class="toolbar__btn_icon" src="/assets/payment.svg" alt="Types" />
+    <span class="toolbar__btn_text">Payment</span>
+  </button>
+  <mat-menu #paymentMenu="matMenu" yPosition="above">
+    <section class="toolbar-menu" [formGroup]="paymentFormGroup">
+      <p *ngFor="let p of toolbarData.payment">
+        <mat-checkbox
+          formControlName="{{ p }}"
+          (click)="$event.stopPropagation()"
+        >
+          {{ p }}
+        </mat-checkbox>
+      </p>
+    </section>
+  </mat-menu>
+
+  <button
+    mat-icon-button
+    class="icon__delivery"
+    aria-label="Waste delivery icon"
+    [matMenuTriggerFor]="deliveryMenu"
+    (click)="toggleMenu('delivery')"
+  >
+    <img class="toolbar__btn_icon" src="/assets/delivery.svg" alt="Types" />
+    <span class="toolbar__btn_text">Delivery</span>
+  </button>
+  <mat-menu #deliveryMenu="matMenu" yPosition="above">
+    <section class="toolbar-menu">
+      <mat-radio-group [(ngModel)]="deliveryChecked">
+        <mat-radio-button
+          *ngFor="let d of toolbarData.delivery"
+          class="toolbar__radio-button"
+          [value]="d"
+          (click)="$event.stopPropagation()"
+        >
+          {{ d }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </mat-menu>
+</mat-toolbar>

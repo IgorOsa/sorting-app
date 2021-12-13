@@ -7,9 +7,17 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MarkerComponent } from './components/marker/marker.component';
 import { SharedModule } from '../../shared/shared.module';
 import { PopupComponent } from './components/popup/popup.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [MapComponent, MarkerComponent, PopupComponent],
+  declarations: [
+    MapComponent,
+    MarkerComponent,
+    PopupComponent,
+    SidebarComponent,
+    ToolbarComponent,
+  ],
   imports: [
     CommonModule,
     MapRoutingModule,

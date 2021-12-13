@@ -8,7 +8,8 @@ export interface DataServiceStore {
     center: number[];
     style: string;
   };
-  geoJsonData?: any;
+  // geoJsonData?: any;
+  toolbarData?: any;
   ecoStations: ecoServiceEntity[];
 }
 
@@ -25,23 +26,43 @@ export class DataService {
         center: [30.34, 59.95],
         style: 'mapbox://styles/mapbox/streets-v11',
       },
-      geoJsonData: {
-        type: 'geojson',
-        data: {
-          type: 'FeatureCollection',
-          features: [
-            {
-              type: 'Feature',
-              geometry: {
-                type: 'Point',
-                coordinates: [30.367395705072454, 59.99737697937698],
-              },
-              properties: {
-                title: 'Test eco point #1',
-              },
-            },
-          ],
-        },
+      // geoJsonData: {
+      //   type: 'geojson',
+      //   data: {
+      //     type: 'FeatureCollection',
+      //     features: [
+      //       {
+      //         type: 'Feature',
+      //         geometry: {
+      //           type: 'Point',
+      //           coordinates: [30.367395705072454, 59.99737697937698],
+      //         },
+      //         properties: {
+      //           title: 'Test eco point #1',
+      //         },
+      //       },
+      //     ],
+      //   },
+      // },
+      toolbarData: {
+        types: [
+          'Organic',
+          'Plastic',
+          'Paper/Cardboard',
+          'Hazardous',
+          'Metal',
+          'Glass',
+          'Electrical',
+          'Reusable things',
+          'Bulky/Construction',
+        ],
+        payment: ['Paid', 'Free'],
+        delivery: [
+          'None',
+          'From apartment door',
+          'From certain location',
+          'From street',
+        ],
       },
       ecoStations: [
         {

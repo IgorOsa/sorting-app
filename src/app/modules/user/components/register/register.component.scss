@@ -1,4 +1,4 @@
-.login__container {
+.register__container {
   background: #49a67f;
   height: 100%;
   display: flex;
@@ -8,8 +8,7 @@
   padding-top: 88px;
 }
 
-.login__header {
-  min-width: 250px;
+.register__header {
   font-family: Sansita One;
   font-style: normal;
   font-weight: normal;
@@ -24,16 +23,16 @@
   margin-bottom: 23px;
 }
 
-.login-form__container {
-  min-width: 400px;
-  max-width: 500px;
-  height: 360px;
+.register-form__container {
+  width: 500px;
+  height: 560px;
   background: #ffffff;
   border-radius: 10px;
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*text-align: center;*/
   padding-top: 78px;
 }
 
@@ -48,6 +47,20 @@
   padding-left: 10px;
 }
 
+.upload__input {
+  width: 250px;
+}
+
+.input__container {
+  width: 390px;
+  display: flex;
+  justify-content: flex-end;
+
+  span {
+    color: #49a67f;
+  }
+}
+
 .input__label {
   font-family: Roboto;
   font-style: normal;
@@ -58,20 +71,33 @@
   margin-right: 10px;
 }
 
-.form__btn {
-  position: absolute;
-  bottom: 36px;
+.btn {
   width: 146px;
   height: 45px;
-  background: #416e6e;
   border-radius: 10px;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 18.5px;
+}
+
+.form__btn {
+  margin-right: 100px;
+  background: #416e6e;
   color: #ffffff;
 }
 
-@media (max-width: 719px) {
-  .login__container {
-    padding-bottom: 88px;
-  }
+.upload__btn {
+  background: #ffd8bc;
+  border: 1px solid #767676;
+  color: #414141;
+}
+
+.cancel__btn {
+  background: #99241d;
+  color: #ffffff;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 36px;
+  right: 54px;
 }

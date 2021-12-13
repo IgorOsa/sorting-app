@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -8,21 +8,12 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
   public isLoggedIn!: boolean;
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
-  ) {
-    iconRegistry.addSvgIcon(
-      'logout',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/logout.svg')
-    );
-
+  constructor(private router: Router, private authService: AuthService) {
     this.authService.currentUser.subscribe((user) => {
       this.isLoggedIn = !!user.access_token;
       console.log(user);
