@@ -34,4 +34,25 @@
       @include toolbar-icon();
     }
   }
+
+  .toolbar__btn_text {
+    font-size: 20px;
+    color: #88410e;
+  }
+
+  .toolbar__btn_icon {
+    width: 50px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .toolbar__btn_text {
+    display: none;
+  }
+
+  .toolbar__btn_icon {
+    width: 55px;
+    margin: 0;
+  }
 }
