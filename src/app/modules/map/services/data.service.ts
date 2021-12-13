@@ -9,6 +9,7 @@ export interface DataServiceStore {
     style: string;
   };
   geoJsonData?: any;
+  toolbarData?: any;
   ecoStations: ecoServiceEntity[];
 }
 
@@ -42,6 +43,26 @@ export class DataService {
             },
           ],
         },
+      },
+      toolbarData: {
+        'Waste types': [
+          'Organic',
+          'Plastic',
+          'Paper/Cardboard',
+          'Hazardous',
+          'Metal',
+          'Glass',
+          'Electrical',
+          'Reusable things',
+          'Bulky/Construction',
+        ],
+        Payment: ['Paid', 'Free'],
+        Delivery: [
+          'None',
+          'From appartment door',
+          'From certain location',
+          'From street',
+        ],
       },
       ecoStations: [
         {

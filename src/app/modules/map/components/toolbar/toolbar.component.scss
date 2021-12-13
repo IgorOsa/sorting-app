@@ -1,0 +1,37 @@
+@media (max-width: 719px) {
+  $toolbarHeight: 98px;
+
+  .toolbar {
+    position: absolute;
+    bottom: 0;
+    height: $toolbarHeight;
+    background-color: #49a67f;
+    border-radius: 11.7067px 11.7067px 0px 0px;
+    display: flex;
+    justify-content: center;
+    // z-index: 100;
+  }
+
+  @mixin toolbar-icon {
+    min-width: 100px;
+    width: 25%;
+    height: 72px;
+    background: #ffffff;
+    box-shadow: 0px 4.68267px 4.68267px rgba(0, 0, 0, 0.25);
+    border-radius: 17.56px;
+  }
+
+  .icon {
+    &__types {
+      @include toolbar-icon();
+      margin-right: 23px;
+    }
+    &__payment {
+      @include toolbar-icon();
+      margin-right: 23px;
+    }
+    &__delivery {
+      @include toolbar-icon();
+    }
+  }
+}

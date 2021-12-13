@@ -1,0 +1,27 @@
+<mat-toolbar class="toolbar">
+  <button
+    mat-icon-button
+    class="icon__types"
+    aria-label="Waste types filter"
+    (click)="toggleMenu('types')"
+  >
+    Types
+  </button>
+
+  <button
+    mat-icon-button
+    class="icon__payment"
+    aria-label="Waste payment filter"
+    (click)="toggleMenu('payment')"
+  >
+    Payment
+  </button>
+  <button
+    mat-icon-button
+    class="icon__delivery"
+    aria-label="Waste delivery icon"
+    (click)="toggleMenu('delivery')"
+  >
+    Delivery
+  </button>
+</mat-toolbar>
