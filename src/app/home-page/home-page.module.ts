@@ -8,17 +8,17 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {MapModule} from "../map/map.module";
 import {SidebarModule} from "../sidebar/sidebar.module";
-import {HeaderComponent} from "../core/components/header/header.component";
+import {HomePageRoutingModule} from "./home-page-routing.module";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    HeaderComponent
+    // HeaderComponent
   ],
   imports: [
     CommonModule,
-    // HomePageRoutingModule,
+    HomePageRoutingModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,

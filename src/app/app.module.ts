@@ -8,7 +8,10 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from "./core/components/header/header.component";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -16,6 +19,9 @@ import {HeaderComponent} from "./core/components/header/header.component";
     SharedModule,
   ],
   providers: [],
+  exports: [
+    HeaderComponent
+  ],
   bootstrap: [AppComponent]
 
 })

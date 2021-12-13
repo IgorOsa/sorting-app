@@ -6,7 +6,7 @@ import {RegisterComponent} from "./modules/user/components/register/register.com
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
+    loadChildren: () => import('./home-page/home-page.module').then((m) => m.HomePageModule),
   },
   {
     path: 'login',
