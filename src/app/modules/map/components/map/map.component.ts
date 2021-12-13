@@ -19,7 +19,6 @@ import { DataService } from '../../services/data.service';
 export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   public map!: mapboxgl.Map;
   public ecoStations!: any;
-  public geoJsonData!: any;
   public center!: any;
   public zoom!: any;
   public style!: string | undefined;
@@ -36,7 +35,6 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
     console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
-      // this.geoJsonData = store.geoJsonData;
     });
   }
 

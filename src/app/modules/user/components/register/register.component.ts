@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
@@ -23,10 +23,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
       ]),
-      email: this.fb.control('', [
-        Validators.required,
-        Validators.email,
-      ]),
+      email: this.fb.control('', [Validators.required, Validators.email]),
       avatar: [null],
     });
   }
@@ -35,17 +32,17 @@ export class RegisterComponent implements OnInit {
     // @ts-ignore
     const file = (event.target as HTMLInputElement).files[0];
     this.registerForm.patchValue({
-      avatar: file
+      avatar: file,
     });
     // @ts-ignore
-    this.registerForm.get('avatar').updateValueAndValidity()
+    this.registerForm.get('avatar').updateValueAndValidity();
 
     // File Preview
     const reader = new FileReader();
     reader.onload = () => {
       this.imageURL = reader.result as string;
-    }
-    reader.readAsDataURL(file)
+    };
+    reader.readAsDataURL(file);
   }
 
   createUser() {
@@ -53,6 +50,6 @@ export class RegisterComponent implements OnInit {
     console.log(username, password, email);
   }
   cancel() {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 }
