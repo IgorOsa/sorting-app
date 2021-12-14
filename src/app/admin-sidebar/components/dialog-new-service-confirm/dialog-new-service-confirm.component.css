@@ -1,0 +1,37 @@
+.dialog-container {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.mat-dialog-title {
+  font-size: 22px;
+  color: #88410E;
+}
+
+.mat-dialog-content {
+  text-align: center;
+  font-size: 17px;
+  color: #484847;
+}
+
+.mat-button {
+  width: 120px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.open-dialog {
+  margin-right: 40px;
+  border: 1px solid #767676;
+  background: #FFD8BC;
+  color: #3D3D3D;
+}
+
+.dialog-close {
+  background: #99241D !important;
+  color: #FFFFFF !important;
+}

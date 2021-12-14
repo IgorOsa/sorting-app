@@ -10,7 +10,8 @@ import {fakeBackendProvider} from './core/fake-backend';
 import {HttpClientModule} from '@angular/common/http';
 import {UserIconsComponent} from './core/components/user-icons/user-icons.component';
 import {UserAvatarComponent} from './core/components/user-avatar/user-avatar.component';
-import { DialogNewServiceConfirmComponent } from './admin-sidebar/components/dialog-new-service-confirm/dialog-new-service-confirm.component';
+import {DialogNewServiceConfirmComponent} from './admin-sidebar/components/dialog-new-service-confirm/dialog-new-service-confirm.component';
+import {DialogAddNewServiceComponent} from './admin-sidebar/components/dialog-add-new-service/dialog-add-new-service.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DialogNewServiceConfirmComponent } from './admin-sidebar/components/dia
     UserIconsComponent,
     UserAvatarComponent,
     DialogNewServiceConfirmComponent,
+    DialogAddNewServiceComponent,
   ],
   imports: [
     AppRoutingModule,

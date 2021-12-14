@@ -8,7 +8,7 @@ import {DialogNewServiceConfirmComponent} from "./components/dialog-new-service-
   templateUrl: './admin-sidebar.component.html',
   styleUrls: ['./admin-sidebar.component.scss']
 })
-export class AdminSidebarComponent  {
+export class AdminSidebarComponent {
 
   public ecoStations!: any;
   selectedValue: any;
@@ -32,5 +32,4 @@ export class AdminSidebarComponent  {
       console.log(`Dialog result: ${result}`);
     });
   }
-
 }

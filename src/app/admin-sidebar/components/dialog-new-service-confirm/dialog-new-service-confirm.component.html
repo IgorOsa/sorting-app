@@ -1,1 +1,13 @@
-<p>dialog-new-service-confirm works!</p>
+<div class="dialog-container">
+  <h1 mat-dialog-title>Add new service here?</h1>
+  <div mat-dialog-content>At the next screen you will be asked <br>
+    to fill all necessary information <br>
+    on the new service
+  </div>
+  <div mat-dialog-actions>
+    <button (click)="openDialog()" [mat-dialog-close]="true" class="open-dialog" mat-button>Proceed</button>
+    <button class="dialog-close" mat-button mat-dialog-close>Cancel</button>
+  </div>
+</div>
+
+

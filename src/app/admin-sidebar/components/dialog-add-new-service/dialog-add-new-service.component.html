@@ -1,0 +1,13 @@
+<div class="dialog-container">
+  <div mat-dialog-content>
+    <p>What's your favorite animal?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input [(ngModel)]="data.name" matInput>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button (click)="onNoClick()" mat-button>No Thanks</button>
+    <button [mat-dialog-close]="data.name"  mat-button>Ok</button>
+  </div>
+</div>
