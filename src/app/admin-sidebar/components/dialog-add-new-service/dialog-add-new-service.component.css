@@ -1,3 +1,92 @@
 .dialog-container {
+  padding-bottom: 30px;
+  position: relative;
+  width: 700px;
+}
+
+.form-title {
+  display: block;
+  margin-top: 16px;
+}
+
+.form-title h2, .form-title img {
+  display: inline-block;
+}
+
+.form-title h2 {
+  padding: 7px 14px;
+  border: 1px solid #929292;
+  border-radius: 18px;
+  color: #88410E;
+}
+
+input, mat-list-option, mat-radio-group, h3 {
+  font-size: 20px !important;
+}
+
+mat-form-field {
+  border: 1px solid #4E4E4E;
+  border-radius: 16px;
+}
+
+.name-input {
   width: 500px;
 }
+
+.phone-input {
+  width: 270px;
+}
+
+.inputs-container h3 {
+  margin-bottom: 0;
+  font-style: italic;
+  color: #4E4E4E;
+}
+
+.form-selects-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-container {
+  width: 33.3%;
+}
+
+.street-input {
+  height: 100px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+td:first-child {
+  padding-right: 8px;
+
+}
+
+.mat-dialog-actions {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.mat-button {
+  width: 135px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.dialog-confirm {
+  margin-right: 25px;
+  background: #416e6e;
+  color: #ffffff;
+}
+
+.dialog-close {
+  background: #99241D !important;
+  color: #FFFFFF !important;
+}
+
