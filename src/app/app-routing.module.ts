@@ -1,12 +1,13 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from "./modules/user/components/login/login.component";
-import {RegisterComponent} from "./modules/user/components/register/register.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './modules/user/components/login/login.component';
+import { RegisterComponent } from './modules/user/components/register/register.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home-page/home-page.module').then((m) => m.HomePageModule),
+    loadChildren: () =>
+      import('./modules/map/map.module').then((m) => m.MapModule),
   },
   {
     path: 'login',
@@ -21,12 +22,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),
   },
-  {path: '**', redirectTo: ''},
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

@@ -45,4 +45,4 @@ testem.log
 Thumbs.db
 .vscode
 
-**/environments
+sorting-app/src/environments

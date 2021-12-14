@@ -1,0 +1,31 @@
+$toolbarHeight: 98px;
+
+mgl-map {
+  position: absolute;
+  left: 398px;
+  height: 100%;
+  width: calc(100% - 398px);
+}
+
+@media (max-width: 899px) {
+  mgl-map {
+    left: 300px;
+    width: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 719px) {
+  app-sidebar {
+    display: none;
+  }
+
+  mgl-map {
+    height: calc(100% - #{$toolbarHeight});
+    left: 0;
+    width: 100%;
+  }
+
+  .header__desktop {
+    display: none;
+  }
+}

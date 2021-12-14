@@ -1,0 +1,13 @@
+<mgl-marker [lngLat]="[es.geo.lng, es.geo.lat]" anchor="bottom" #myMarker>
+  <div class="marker" (click)="markerClickHandler()"></div>
+</mgl-marker>
+<mgl-popup
+  [marker]="myMarker"
+  maxWidth="auto"
+  [closeButton]="false"
+  anchor="bottom"
+  [offset]="45"
+  class="mgl-popup"
+>
+  <app-popup [es]="es"></app-popup>
+</mgl-popup>

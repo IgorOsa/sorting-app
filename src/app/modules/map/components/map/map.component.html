@@ -1,0 +1,23 @@
+<mgl-map
+  (mapClick)="mapClickEventHandler($event)"
+  (mapLoad)="mapLoadEvent($event)"
+  [center]="center"
+  [style]="style"
+  [zoom]="zoom"
+>
+  <mgl-control mglFullscreen position="bottom-right"></mgl-control>
+  <mgl-control mglNavigation position="bottom-right"></mgl-control>
+  <mgl-control mglGeolocate position="bottom-right"></mgl-control>
+  <app-marker
+    *ngFor="let es of ecoStations"
+    [es]="es"
+    [events]="eventsSubject.asObservable()"
+    [map]="map"
+  ></app-marker>
+</mgl-map>
+<!--<app-sidebar></app-sidebar>-->
+<app-admin-sidebar></app-admin-sidebar>
+
+<app-toolbar></app-toolbar>
+
+

@@ -1,0 +1,65 @@
+mat-sidenav-container {
+  position: absolute;
+  top: 88px;
+  left: 0;
+  height: calc(100vh - 88px);
+}
+
+mat-sidenav {
+  width: 398px;
+  border-right: none;
+  background: #49a67f;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  padding: 0 20px;
+}
+
+@media (max-width: 899px) {
+  mat-sidenav {
+    width: 300px;
+  }
+}
+
+mat-accordion {
+  margin: 20px;
+}
+
+mat-expansion-panel {
+  border-radius: 17px !important;
+}
+
+mat-panel-title p {
+  margin: 15px !important;
+  font-size: 20px;
+  color: #88410e;
+}
+
+mat-panel-title img {
+  width: 40px;
+}
+
+.panel-container {
+  background: #e3dddd;
+}
+
+mat-expansion-panel-header,
+mat-expansion-panel-header:hover,
+mat-expansion-panel-header:focus {
+  background: white !important;
+}
+
+mat-list-option,
+mat-radio-button {
+  font-style: italic;
+  font-size: 16px;
+}
+
+mat-radio-button {
+  margin: 10px 0;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}

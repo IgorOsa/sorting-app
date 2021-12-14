@@ -1,0 +1,71 @@
+<mat-toolbar class="toolbar">
+  <button
+    (click)="toggleMenu('types')"
+    [matMenuTriggerFor]="typesMenu"
+    aria-label="Waste types filter"
+    class="icon__types"
+    mat-icon-button
+  >
+    <img alt="Types" class="toolbar__btn_icon" src="/src/assets/types.svg"/>
+    <span class="toolbar__btn_text">Types</span>
+  </button>
+  <mat-menu #typesMenu="matMenu" [formGroup]="typesFormGroup" yPosition="above">
+    <section [formGroup]="typesFormGroup" class="toolbar-menu">
+      <p *ngFor="let type of toolbarData.types">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          formControlName="{{ type }}"
+        >{{ type }}</mat-checkbox
+        >
+      </p>
+    </section>
+  </mat-menu>
+
+  <button
+    (click)="toggleMenu('payment')"
+    [matMenuTriggerFor]="paymentMenu"
+    aria-label="Waste payment filter"
+    class="icon__payment"
+    mat-icon-button
+  >
+    <img alt="Types" class="toolbar__btn_icon" src="/src/assets/payment.svg"/>
+    <span class="toolbar__btn_text">Payment</span>
+  </button>
+  <mat-menu #paymentMenu="matMenu" yPosition="above">
+    <section [formGroup]="paymentFormGroup" class="toolbar-menu">
+      <p *ngFor="let p of toolbarData.payment">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          formControlName="{{ p }}"
+        >
+          {{ p }}
+        </mat-checkbox>
+      </p>
+    </section>
+  </mat-menu>
+
+  <button
+    (click)="toggleMenu('delivery')"
+    [matMenuTriggerFor]="deliveryMenu"
+    aria-label="Waste delivery icon"
+    class="icon__delivery"
+    mat-icon-button
+  >
+    <img alt="Types" class="toolbar__btn_icon" src="/src/assets/delivery.svg"/>
+    <span class="toolbar__btn_text">Delivery</span>
+  </button>
+  <mat-menu #deliveryMenu="matMenu" yPosition="above">
+    <section class="toolbar-menu">
+      <mat-radio-group [(ngModel)]="deliveryChecked">
+        <mat-radio-button
+          (click)="$event.stopPropagation()"
+          *ngFor="let d of toolbarData.delivery"
+          [value]="d"
+          class="toolbar__radio-button"
+        >
+          {{ d }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </mat-menu>
+</mat-toolbar>
