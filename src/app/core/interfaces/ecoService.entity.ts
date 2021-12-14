@@ -13,7 +13,18 @@ export interface Photo {
   url: string; // link to photo on server
 }
 
-type wasteType = 'organic' | 'plastic' | 'paper' | 'metal';
+type wasteType =
+  | 'organic'
+  | 'paper'
+  | 'cardboard'
+  | 'hazardous'
+  | 'metal'
+  | 'glass'
+  | 'electrical'
+  | 'reusable things'
+  | 'bulky'
+  | 'construction'
+  | 'plastic';
 
 export interface ecoServiceEntity {
   id: string | number; // unique identifier
