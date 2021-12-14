@@ -24,6 +24,8 @@ export class SidebarComponent implements OnInit {
   deliveryFormGroup!: FormGroup;
   deliveryChecked!: string;
 
+  panelOpenState = 0;
+
   constructor(private dataService: DataService, private fb: FormBuilder) {
     this.toolbarData = this.dataService.store$.value.toolbarData;
     this.wasteTypes = this.dataService.store$.value.toolbarData.types;
@@ -48,7 +50,7 @@ export class SidebarComponent implements OnInit {
     this.deliveryFormGroup = this.toFormGroup(this.toolbarData.delivery);
   }
 
-  wasteTypesPanelOpenState = false;
-  paymentPanelOpenState = false;
-  deliveryPanelOpenState = false;
+  setPanelOpenState(index: number) {
+    this.panelOpenState = index;
+  }
 }

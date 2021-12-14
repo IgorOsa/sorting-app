@@ -2,8 +2,8 @@
   <mat-sidenav mode="side" opened class="sidenav">
     <mat-accordion class="accordion">
       <mat-expansion-panel
-        (closed)="wasteTypesPanelOpenState = false"
-        (opened)="wasteTypesPanelOpenState = true"
+        [expanded]="panelOpenState === 0"
+        (opened)="setPanelOpenState(0)"
         class="panel-container"
       >
         <mat-expansion-panel-header>
@@ -25,8 +25,8 @@
 
     <mat-accordion class="accordion">
       <mat-expansion-panel
-        (closed)="paymentPanelOpenState = false"
-        (opened)="paymentPanelOpenState = true"
+        [expanded]="panelOpenState === 1"
+        (opened)="setPanelOpenState(1)"
         class="panel-container"
       >
         <mat-expansion-panel-header>
@@ -48,8 +48,8 @@
 
     <mat-accordion class="accordion">
       <mat-expansion-panel
-        (closed)="deliveryPanelOpenState = false"
-        (opened)="deliveryPanelOpenState = true"
+        [expanded]="panelOpenState === 2"
+        (opened)="setPanelOpenState(2)"
         class="panel-container"
       >
         <mat-expansion-panel-header>
