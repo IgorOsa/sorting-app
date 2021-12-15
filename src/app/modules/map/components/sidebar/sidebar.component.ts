@@ -13,41 +13,31 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  wasteTypes!: string[];
-  paymentTypes!: string[];
-  deliveryTypes!: string[];
-  selectedDeliveryType?: string;
-
+  public panelOpenState = 0;
   public toolbarData!: any;
-  typesFormGroup!: FormGroup;
-  paymentFormGroup!: FormGroup;
-  deliveryFormGroup!: FormGroup;
-  deliveryChecked!: string;
-
-  panelOpenState = 0;
+  public filtersFormGroup!: FormGroup;
 
   constructor(private dataService: DataService, private fb: FormBuilder) {
     this.toolbarData = this.dataService.store$.value.toolbarData;
-    this.wasteTypes = this.dataService.store$.value.toolbarData.types;
-    this.paymentTypes = this.dataService.store$.value.toolbarData.payment;
-    this.deliveryTypes = this.dataService.store$.value.toolbarData.delivery;
-  }
-
-  toFormGroup(questions: any[]) {
-    const group: any = {};
-
-    questions.forEach((question) => {
-      group[question] = question.required
-        ? new FormControl(question.value || false, Validators.required)
-        : new FormControl(question.value || false);
-    });
-    return new FormGroup(group);
   }
 
   ngOnInit(): void {
-    this.typesFormGroup = this.toFormGroup(this.toolbarData.types);
-    this.paymentFormGroup = this.toFormGroup(this.toolbarData.payment);
-    this.deliveryFormGroup = this.toFormGroup(this.toolbarData.delivery);
+    this.filtersFormGroup = this.fb.group({
+      types: new FormControl(this.dataService.store$.value.filters.types),
+      payment: new FormControl(this.dataService.store$.value.filters.payment),
+      delivery: new FormControl(this.dataService.store$.value.filters.delivery),
+    });
+  }
+
+  filterChangeHandler(delivery = '') {
+    if (delivery) {
+      this.filtersFormGroup.setValue({
+        ...this.filtersFormGroup.value,
+        delivery,
+      });
+    }
+    this.dataService.updateFilters(this.filtersFormGroup.value);
+    this.dataService.filterPoints();
   }
 
   setPanelOpenState(index: number) {

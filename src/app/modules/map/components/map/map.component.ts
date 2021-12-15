@@ -3,7 +3,6 @@ import {
   Component,
   OnChanges,
   OnInit,
-  SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
@@ -16,7 +15,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./map.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MapComponent implements OnInit, OnChanges, AfterViewInit {
+export class MapComponent implements OnInit {
   public map!: mapboxgl.Map;
   public ecoStations!: any;
   public center!: any;
@@ -32,18 +31,9 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
     });
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges');
-  }
-
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
   }
 
   mapLoadEvent(map: mapboxgl.Map) {

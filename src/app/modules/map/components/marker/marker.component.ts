@@ -26,7 +26,6 @@ export class MarkerComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('MarkerComponent');
     this.eventsSubscription = this.events.subscribe((data) => {});
   }
 
