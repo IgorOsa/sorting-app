@@ -16,7 +16,11 @@ mat-sidenav {
 
 @media (max-width: 899px) {
   mat-sidenav {
-    width: 500px;
+    width: 400px;
+  }
+
+  mat-form-field.mat-form-field {
+    width: 360px !important;
   }
 }
 
