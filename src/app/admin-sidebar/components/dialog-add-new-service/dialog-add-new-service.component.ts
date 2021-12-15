@@ -45,11 +45,36 @@ export class DialogAddNewServiceComponent implements OnInit {
         Validators.required,
         Validators.minLength(2),
       ]),
-      wasteTypes: this.fb.control('', [
+      wasteTypes: this.fb.control([], [
         Validators.required,
       ]),
-
+      payment: this.fb.control([], [
+        Validators.required,
+      ]),
+      paidComment: this.fb.control('', []),
+      delivery: this.fb.control('', [
+        Validators.required,
+      ]),
+      city: this.fb.control('', []),
+      email: this.fb.control('', []),
+      address: this.fb.control('', []),
+      phone: this.fb.control('', []),
     });
+  }
+
+  addService() {
+    const {name, wasteTypes, payment, paidComment, delivery, city, email, address, phone} = this.servicesForm.value;
+
+    console.log('name', name)
+    console.log('wasteTypes', wasteTypes)
+    console.log('payment', payment)
+    console.log('paidComment', paidComment)
+    console.log('delivery', delivery)
+    console.log('city', city)
+    console.log('email', email)
+    console.log('address', address)
+    console.log('phone', phone)
+
   }
 
   onNoClick(): void {

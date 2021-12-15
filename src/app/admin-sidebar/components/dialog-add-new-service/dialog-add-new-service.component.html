@@ -6,7 +6,7 @@
         <img alt="Require icon" src="assets/require.svg">
       </div>
       <mat-form-field appearance="fill" class="name-input">
-        <input matInput placeholder="Service name">
+        <input formControlName="name" matInput placeholder="Service name">
       </mat-form-field>
     </div>
 
@@ -30,13 +30,19 @@
           <h2>Payment</h2>
           <img alt="Require icon" src="assets/require.svg">
         </div>
-        <mat-selection-list>
+        <mat-selection-list formControlName="payment">
           <mat-list-option
             *ngFor="let payment of paymentTypes"
             [value]="payment"
           >
             {{ payment }}
           </mat-list-option>
+          <div class="free-payment-container">
+            <h3>Price info</h3>
+            <mat-form-field appearance="fill" class="full-width">
+              <textarea formControlName="paidComment" matInput placeholder="Price info"></textarea>
+            </mat-form-field>
+          </div>
         </mat-selection-list>
       </div>
       <div class="list-container">
@@ -44,9 +50,10 @@
           <h2>Delivery</h2>
           <img alt="Require icon" src="assets/require.svg">
         </div>
-        <mat-radio-group [(ngModel)]="selectedDeliveryType">
+        <mat-radio-group [(ngModel)]="selectedDeliveryType" formControlName="delivery">
           <mat-radio-button
             *ngFor="let delivery of deliveryTypes"
+            [checked]="servicesForm.get('delivery')?.value===delivery"
             [value]="delivery"
           >
             {{ delivery }}
@@ -57,20 +64,19 @@
     <div class="inputs-container">
       <div class="form-title">
         <h2>Contacts</h2>
-        <img alt="Require icon" src="assets/require.svg">
       </div>
       <table cellspacing="0" class="full-width">
         <tr>
           <td>
             <h3>City</h3>
             <mat-form-field appearance="fill" class="full-width">
-              <input matInput>
+              <input formControlName="city" matInput placeholder="City">
             </mat-form-field>
           </td>
           <td>
             <h3>Email</h3>
             <mat-form-field appearance="fill" class="full-width">
-              <input matInput>
+              <input formControlName="email" matInput placeholder="Email">
             </mat-form-field>
           </td>
         </tr>
@@ -78,18 +84,18 @@
 
       <h3>Street address</h3>
       <mat-form-field appearance="fill" class="full-width">
-        <textarea matInput placeholder=""></textarea>
+        <textarea formControlName="address" matInput placeholder="Street address"></textarea>
       </mat-form-field>
       <h3>Phone number</h3>
       <mat-form-field appearance="fill" class="phone-input">
-        <input matInput placeholder="" type="tel">
+        <input formControlName="phone" matInput placeholder="Phone number" type="tel">
       </mat-form-field>
     </div>
 
   </form>
 
   <div mat-dialog-actions>
-    <button [mat-dialog-close]="true" class="dialog-confirm" mat-button>Add</button>
+    <button (click)="addService()" [mat-dialog-close]="true" class="dialog-confirm" mat-button>Add</button>
     <button (click)="onNoClick()" class="dialog-close" mat-button>Cancel</button>
 
   </div>
