@@ -94,8 +94,11 @@ td:first-child {
   color: #ffffff;
 }
 
-.dialog-close {
+.dialog-delete {
   background: #99241D !important;
   color: #FFFFFF !important;
 }
 
+.dialog-delete img {
+  margin-right: 7px;
+}

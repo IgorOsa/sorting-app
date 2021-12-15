@@ -9,12 +9,12 @@
       </button>
     </mat-form-field>
     <mat-nav-list class="station-list">
-      <a *ngFor="let station of ecoStations | search : searchText"  mat-list-item>
+      <a (click)="updateService()" *ngFor="let station of ecoStations | search : searchText" mat-list-item>
         <span mat-line>{{ station.name }}</span>
       </a>
     </mat-nav-list>
 
-    <button (click)="openDialog()" class="open-dialog" mat-button>
+    <button (click)="addService()" class="open-dialog" mat-button>
       <img alt="Plus Sign" src="assets/plus.svg">
       Add new service
     </button>

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {DataService} from "../modules/map/services/data.service";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogNewServiceConfirmComponent} from "./components/dialog-new-service-confirm/dialog-new-service-confirm.component";
+import {DialogUpdateServiceComponent} from "./components/dialog-update-service/dialog-update-service.component";
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -25,11 +26,12 @@ export class AdminSidebarComponent {
     });
   }
 
-  openDialog() {
+  addService() {
     const dialogRef = this.dialog.open(DialogNewServiceConfirmComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  }
+
+  updateService() {
+    const dialogRef = this.dialog.open(DialogUpdateServiceComponent);
   }
 }

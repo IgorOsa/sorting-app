@@ -12,6 +12,8 @@ import {UserIconsComponent} from './core/components/user-icons/user-icons.compon
 import {UserAvatarComponent} from './core/components/user-avatar/user-avatar.component';
 import {DialogNewServiceConfirmComponent} from './admin-sidebar/components/dialog-new-service-confirm/dialog-new-service-confirm.component';
 import {DialogAddNewServiceComponent} from './admin-sidebar/components/dialog-add-new-service/dialog-add-new-service.component';
+import { DialogUpdateServiceComponent } from './admin-sidebar/components/dialog-update-service/dialog-update-service.component';
+import { DialogDeleteServiceComponent } from './admin-sidebar/components/dialog-delete-service/dialog-delete-service.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {DialogAddNewServiceComponent} from './admin-sidebar/components/dialog-ad
     UserAvatarComponent,
     DialogNewServiceConfirmComponent,
     DialogAddNewServiceComponent,
+    DialogUpdateServiceComponent,
+    DialogDeleteServiceComponent,
   ],
   imports: [
     AppRoutingModule,
