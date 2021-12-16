@@ -17,6 +17,7 @@
       <div class="input__container">
         <label class="input__label">Avatar</label>
         <div class="upload__input">
+          <img alt="Register icon" src="assets/register.svg">
           <div *ngIf="imageURL && imageURL !== ''" class="imagePreview">
             <img [alt]="registerForm.value.name" [src]="imageURL">
           </div>
