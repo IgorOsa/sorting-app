@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MapComponent } from './components/map/map.component';
+import { MapContainerComponent } from './map-container.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: MapComponent,
+    component: MapContainerComponent,
   },
 ];
 
