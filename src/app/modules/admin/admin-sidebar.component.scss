@@ -6,7 +6,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  width: 500px;
+  width: 400px;
   border-right: none;
   background: #49a67f;
   color: white;
@@ -14,15 +14,15 @@ mat-sidenav {
   padding: 20px;
 }
 
-//@media (max-width: 899px) {
-//  mat-sidenav {
-//    width: 400px;
-//  }
-//
-//  mat-form-field.mat-form-field {
-//    width: 360px !important;
-//  }
-//}
+@media (max-width: 799px) {
+  mat-sidenav {
+    width: 300px;
+  }
+
+  mat-form-field.mat-form-field {
+    width: 260px !important;
+  }
+}
 
 mat-sidenav h2 {
   text-align: center;
@@ -38,8 +38,8 @@ mat-form-field.mat-form-field {
   border-radius: 12px !important;
   font-size: 16px;
   font-style: italic;
-  background: #FFFFFF;
-  color: #B4B4B4;
+  background: #ffffff;
+  color: #b4b4b4;
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -65,7 +65,7 @@ mat-form-field button {
 mat-nav-list {
   margin-top: 47px;
   border-radius: 10px;
-  background: #F2F1F1;
+  background: #f2f1f1;
   color: #484847;
 }
 
@@ -76,8 +76,8 @@ mat-nav-list {
   border: 1px solid #767676;
   border-radius: 10px;
   font-size: 14px;
-  background: #FFD8BC;
-  color: #3D3D3D;
+  background: #ffd8bc;
+  color: #3d3d3d;
 }
 
 .open-dialog img {
