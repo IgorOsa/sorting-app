@@ -1,12 +1,12 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {ecoServiceEntity} from "../../../core/interfaces";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ecoServiceEntity } from '../../../../core/interfaces';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog-add-new-service',
   templateUrl: './dialog-add-new-service.component.html',
-  styleUrls: ['./dialog-add-new-service.component.css']
+  styleUrls: ['./dialog-add-new-service.component.css'],
 })
 export class DialogAddNewServiceComponent implements OnInit {
   wasteTypes: string[] = [
@@ -36,25 +36,15 @@ export class DialogAddNewServiceComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogAddNewServiceComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ecoServiceEntity,
     private fb: FormBuilder
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.servicesForm = this.fb.group({
-      name: this.fb.control('', [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
-      wasteTypes: this.fb.control([], [
-        Validators.required,
-      ]),
-      payment: this.fb.control([], [
-        Validators.required,
-      ]),
+      name: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      wasteTypes: this.fb.control([], [Validators.required]),
+      payment: this.fb.control([], [Validators.required]),
       paidComment: this.fb.control('', []),
-      delivery: this.fb.control('', [
-        Validators.required,
-      ]),
+      delivery: this.fb.control('', [Validators.required]),
       city: this.fb.control('', []),
       email: this.fb.control('', []),
       address: this.fb.control('', []),
@@ -63,18 +53,27 @@ export class DialogAddNewServiceComponent implements OnInit {
   }
 
   addService() {
-    const {name, wasteTypes, payment, paidComment, delivery, city, email, address, phone} = this.servicesForm.value;
+    const {
+      name,
+      wasteTypes,
+      payment,
+      paidComment,
+      delivery,
+      city,
+      email,
+      address,
+      phone,
+    } = this.servicesForm.value;
 
-    console.log('name', name)
-    console.log('wasteTypes', wasteTypes)
-    console.log('payment', payment)
-    console.log('paidComment', paidComment)
-    console.log('delivery', delivery)
-    console.log('city', city)
-    console.log('email', email)
-    console.log('address', address)
-    console.log('phone', phone)
-
+    console.log('name', name);
+    console.log('wasteTypes', wasteTypes);
+    console.log('payment', payment);
+    console.log('paidComment', paidComment);
+    console.log('delivery', delivery);
+    console.log('city', city);
+    console.log('email', email);
+    console.log('address', address);
+    console.log('phone', phone);
   }
 
   onNoClick(): void {

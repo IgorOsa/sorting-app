@@ -11,10 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserIconsComponent } from './core/components/user-icons/user-icons.component';
 import { UserAvatarComponent } from './core/components/user-avatar/user-avatar.component';
 import { GuideLinkComponent } from './core/components/guide-link/guide-link.component';
-import { DialogNewServiceConfirmComponent } from './admin-sidebar/components/dialog-new-service-confirm/dialog-new-service-confirm.component';
-import { DialogAddNewServiceComponent } from './admin-sidebar/components/dialog-add-new-service/dialog-add-new-service.component';
-import { DialogUpdateServiceComponent } from './admin-sidebar/components/dialog-update-service/dialog-update-service.component';
-import { DialogDeleteServiceComponent } from './admin-sidebar/components/dialog-delete-service/dialog-delete-service.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +19,6 @@ import { DialogDeleteServiceComponent } from './admin-sidebar/components/dialog-
     UserIconsComponent,
     UserAvatarComponent,
     GuideLinkComponent,
-    DialogNewServiceConfirmComponent,
-    DialogAddNewServiceComponent,
-    DialogUpdateServiceComponent,
-    DialogDeleteServiceComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -35,6 +27,7 @@ import { DialogDeleteServiceComponent } from './admin-sidebar/components/dialog-
     HttpClientModule,
     SharedModule,
   ],
+  exports: [],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
 })
