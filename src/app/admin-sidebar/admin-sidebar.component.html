@@ -1,0 +1,22 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" mode="side" opened>
+    <h2>Eco services</h2>
+    <mat-form-field >
+      <mat-placeholder>Start typing name</mat-placeholder>
+      <input [(ngModel)]="searchText" matInput type="search">
+      <button aria-label="search" mat-button mat-stroked-button matSuffix>
+        <img alt="Search button" src="assets/search.svg">
+      </button>
+    </mat-form-field>
+    <mat-nav-list class="station-list">
+      <a (click)="updateService()" *ngFor="let station of ecoStations | search : searchText" mat-list-item>
+        <span mat-line>{{ station.name }}</span>
+      </a>
+    </mat-nav-list>
+
+    <button (click)="addService()" class="open-dialog" mat-button>
+      <img alt="Plus Sign" src="assets/plus.svg">
+      Add new service
+    </button>
+  </mat-sidenav>
+</mat-sidenav-container>

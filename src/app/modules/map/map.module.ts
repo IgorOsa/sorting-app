@@ -9,6 +9,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { PopupComponent } from './components/popup/popup.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AdminSidebarComponent } from '../../admin-sidebar/admin-sidebar.component';
+import { SearchPipe } from '../../search.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     PopupComponent,
     SidebarComponent,
     ToolbarComponent,
+    AdminSidebarComponent,
+    SearchPipe,
   ],
   imports: [
     CommonModule,
