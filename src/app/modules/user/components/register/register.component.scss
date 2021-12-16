@@ -5,7 +5,7 @@
   flex-direction: column;
   align-content: space-around;
   align-items: center;
-  padding-top: 88px;
+  padding-top: 78px;
 }
 
 .register__header {
@@ -19,8 +19,8 @@
   text-align: center;
   justify-content: space-around;
   color: #ffffff;
-  padding-top: 23px;
-  margin-bottom: 23px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .register-form__container {
@@ -33,7 +33,7 @@
   flex-direction: column;
   align-items: center;
   /*text-align: center;*/
-  padding-top: 78px;
+  padding-top: 45px;
 }
 
 .form__input {
@@ -43,7 +43,7 @@
   border: 1px solid #989898;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-bottom: 39px;
+  margin-bottom: 25px;
   padding-left: 10px;
 }
 
@@ -65,7 +65,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 25px;
   color: #4e4e4e;
   margin-right: 10px;
@@ -76,7 +76,7 @@
   height: 45px;
   border-radius: 10px;
   font-weight: normal;
-  font-size: 18.5px;
+  font-size: 16px;
 }
 
 .form__btn {
@@ -86,6 +86,7 @@
 }
 
 .upload__btn {
+  margin-left: 15px;
   background: #ffd8bc;
   border: 1px solid #767676;
   color: #414141;
@@ -98,6 +99,6 @@
 
 .btn-container {
   position: absolute;
-  bottom: 36px;
+  bottom: 30px;
   right: 54px;
 }
