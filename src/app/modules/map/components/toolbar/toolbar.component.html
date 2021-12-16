@@ -9,11 +9,7 @@
       <img class="toolbar__btn_icon" src="/assets/types.svg" alt="Types" />
       <span class="toolbar__btn_text">Types</span>
     </button>
-    <mat-menu
-      #typesMenu="matMenu"
-      yPosition="above"
-      (closed)="toggleMenu('types')"
-    >
+    <mat-menu #typesMenu="matMenu" yPosition="above">
       <mat-selection-list class="toolbar-menu" formControlName="types">
         <mat-list-option
           *ngFor="let type of toolbarData.types"
@@ -36,11 +32,7 @@
       <img class="toolbar__btn_icon" src="/assets/payment.svg" alt="Types" />
       <span class="toolbar__btn_text">Payment</span>
     </button>
-    <mat-menu
-      #paymentMenu="matMenu"
-      yPosition="above"
-      (closed)="toggleMenu('payment')"
-    >
+    <mat-menu #paymentMenu="matMenu" yPosition="above">
       <mat-selection-list class="toolbar-menu" formControlName="payment">
         <mat-list-option
           *ngFor="let payment of toolbarData.payment"
@@ -63,19 +55,15 @@
       <img class="toolbar__btn_icon" src="/assets/delivery.svg" alt="Types" />
       <span class="toolbar__btn_text">Delivery</span>
     </button>
-    <mat-menu
-      #deliveryMenu="matMenu"
-      yPosition="above"
-      class="toolbar-menu"
-      (closed)="toggleMenu('delivery')"
-    >
+    <mat-menu #deliveryMenu="matMenu" yPosition="above" class="toolbar-menu">
       <mat-radio-group formControlName="delivery">
         <mat-radio-button
           *ngFor="let delivery of toolbarData.delivery"
           class="toolbar__radio-button"
-          [value]="delivery"
           (click)="filterChangeHandler(delivery)"
           (click)="$event.stopPropagation()"
+          [checked]="this.filtersFormGroup.controls.delivery.value === delivery"
+          (change)="handleRadioChange(delivery)"
         >
           {{ delivery }}
         </mat-radio-button>

@@ -24,17 +24,21 @@ export class ToolbarComponent implements OnInit {
     });
   }
 
-  toggleMenu(menuType: string) {
+  filterChangeHandler(delivery = '') {
+    this.filtersFormGroup.setValue({
+      ...this.filtersFormGroup.value,
+      delivery,
+    });
+    this.dataService.updateFilters(this.filtersFormGroup.value);
     this.dataService.filterPoints();
   }
 
-  filterChangeHandler(delivery = '') {
-    if (delivery) {
-      this.filtersFormGroup.setValue({
-        ...this.filtersFormGroup.value,
-        delivery,
-      });
+  handleRadioChange(delivery: string) {
+    if (this.filtersFormGroup.value.delivery === delivery) {
+      this.filtersFormGroup.controls.delivery.setValue('');
+      this.filterChangeHandler();
+    } else {
+      this.filterChangeHandler(delivery);
     }
-    this.dataService.updateFilters(this.filtersFormGroup.value);
   }
 }

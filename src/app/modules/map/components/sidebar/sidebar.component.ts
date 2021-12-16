@@ -29,18 +29,25 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  setPanelOpenState(index: number) {
+    this.panelOpenState = index;
+  }
+
   filterChangeHandler(delivery = '') {
-    if (delivery) {
-      this.filtersFormGroup.setValue({
-        ...this.filtersFormGroup.value,
-        delivery,
-      });
-    }
+    this.filtersFormGroup.setValue({
+      ...this.filtersFormGroup.value,
+      delivery,
+    });
     this.dataService.updateFilters(this.filtersFormGroup.value);
     this.dataService.filterPoints();
   }
 
-  setPanelOpenState(index: number) {
-    this.panelOpenState = index;
+  handleRadioChange(delivery: string) {
+    if (this.filtersFormGroup.value.delivery === delivery) {
+      this.filtersFormGroup.controls.delivery.setValue('');
+      this.filterChangeHandler();
+    } else {
+      this.filterChangeHandler(delivery);
+    }
   }
 }

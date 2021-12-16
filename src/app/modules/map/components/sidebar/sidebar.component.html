@@ -65,7 +65,10 @@
             <mat-radio-button
               *ngFor="let delivery of toolbarData.delivery"
               (click)="filterChangeHandler(delivery)"
-              [value]="delivery"
+              [checked]="
+                this.filtersFormGroup.controls.delivery.value === delivery
+              "
+              (change)="handleRadioChange(delivery)"
             >
               {{ delivery }}
             </mat-radio-button>
