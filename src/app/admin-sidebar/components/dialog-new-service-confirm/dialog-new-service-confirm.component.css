@@ -1,5 +1,5 @@
 .dialog-container {
-  width: 360px;
+  width: 345px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,24 +9,30 @@
 
 .mat-dialog-title {
   text-align: center !important;
-  font-size: 22px;
+  font-size: 20px;
   color: #88410E;
 }
 
 .mat-dialog-content {
   text-align: center;
-  font-size: 17px;
+  font-size: 16px;
   color: #484847;
+}
+
+.mat-dialog-actions {
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .mat-button {
   width: 120px;
   border-radius: 10px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .open-dialog {
-  margin-right: 40px;
   border: 1px solid #767676;
   background: #FFD8BC;
   color: #3D3D3D;

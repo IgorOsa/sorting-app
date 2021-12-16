@@ -1,36 +1,42 @@
 .dialog-container {
-  width: 360px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 .mat-dialog-title {
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 20px;
   color: #88410E;
 }
 
 h1 {
-  width: 300px;
+  width: 280px;
   text-align: center;
+  line-height: 1.2;
 }
 
 .service-name {
+  font-size: 18px;
   font-style: italic;
   font-weight: bold;
 }
 
 .mat-dialog-content {
+  padding: 0 !important;
   text-align: center;
-  font-size: 17px;
+  font-size: 16px;
   color: #484847;
 }
 
 .mat-dialog-actions {
-  margin-top: 20px;
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .mat-button {
@@ -40,7 +46,6 @@ h1 {
 }
 
 .remove-service {
-  margin-right: 40px;
   background: #99241D !important;
   color: #FFFFFF !important;
 }

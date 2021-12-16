@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-bottom: 0;
   padding-bottom: 0;
-  width: 850px;
+  width: 720px;
   height: calc(100vh - 100px);
   overflow-y: auto;
 }
@@ -22,20 +22,32 @@ form {
 }
 
 .form-title h2 {
-  padding: 7px 14px;
+  padding: 0 14px;
   border: 1px solid #929292;
-  border-radius: 18px;
+  border-radius: 14px;
   color: #88410E;
 }
 
 input, mat-list-option, mat-radio-group, h3 {
-  font-size: 20px !important;
+  font-size: 16px !important;
 }
 
 mat-form-field {
   margin-bottom: 10px;
   border: 1px solid #4E4E4E;
-  border-radius: 16px;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0 0 0.4em !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  margin-top: -15px;
+}
+
+::ng-deep label.ng-star-inserted {
+  transform: translateY(-0.59375em) scale(.75) !important;
 }
 
 .name-input {
@@ -62,12 +74,16 @@ h3 {
   width: 33.3%;
 }
 
+.mat-list-item {
+  height: 30px;
+}
+
 .free-payment-container {
   margin: 0 10px 0 25px;
 }
 
 mat-radio-button {
-  margin: 15px !important;
+  margin: 5px 20px !important;
 }
 
 .street-input {
@@ -93,7 +109,7 @@ td:first-child {
   width: 135px;
   padding: 5px 10px;
   border-radius: 10px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .dialog-confirm {
