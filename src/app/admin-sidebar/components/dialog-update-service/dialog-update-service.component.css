@@ -1,7 +1,15 @@
 .dialog-container {
-  padding-bottom: 30px;
-  position: relative;
-  width: 750px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 850px;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+form {
+  margin-bottom: 0;
 }
 
 .form-title {
@@ -76,9 +84,9 @@ td:first-child {
 }
 
 .mat-dialog-actions {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  align-self: flex-end;
+  padding: 0;
+  margin: -10px 0;
 }
 
 .mat-button {

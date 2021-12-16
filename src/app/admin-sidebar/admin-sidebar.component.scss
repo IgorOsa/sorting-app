@@ -6,7 +6,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  width: 648px;
+  width: 500px;
   border-right: none;
   background: #49a67f;
   color: white;
@@ -14,15 +14,15 @@ mat-sidenav {
   padding: 20px;
 }
 
-@media (max-width: 899px) {
-  mat-sidenav {
-    width: 400px;
-  }
-
-  mat-form-field.mat-form-field {
-    width: 360px !important;
-  }
-}
+//@media (max-width: 899px) {
+//  mat-sidenav {
+//    width: 400px;
+//  }
+//
+//  mat-form-field.mat-form-field {
+//    width: 360px !important;
+//  }
+//}
 
 mat-sidenav h2 {
   text-align: center;
@@ -32,7 +32,7 @@ mat-sidenav h2 {
 
 mat-form-field.mat-form-field {
   position: absolute;
-  max-width: 400px;
+  max-width: 370px;
   width: 100%;
   padding: 1px 2px 2px 10px;
   border-radius: 12px !important;
