@@ -19,7 +19,6 @@ export class AdminSidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
     this.dataService.store$.subscribe((store) => {
       this.ecoStations = store.ecoStations;
     });

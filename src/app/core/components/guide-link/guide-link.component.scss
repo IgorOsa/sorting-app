@@ -31,7 +31,8 @@
   display: block;
 }
 
-.question-link__wrapper:hover > .question-link__icon {
+.question-link__wrapper:hover > .question-link__icon,
+.question-link__wrapper:hover > .question-link__icon:hover {
   background-image: url("/assets/question-circle-hovered.svg");
 }
 
