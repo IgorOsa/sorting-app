@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of, scheduled } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ecoServiceEntity } from '../../../core/interfaces/ecoService.entity';
 
 export interface Filters {
@@ -14,6 +16,8 @@ export interface DataServiceStore {
     center: number[];
     style: string;
   };
+  mapRef: null | mapboxgl.Map;
+  mapEvent: null | mapboxgl.MapboxEvent;
   filters: Filters;
   toolbarData?: any;
   ecoStations: ecoServiceEntity[];
@@ -25,6 +29,8 @@ const DEFAULT_STORE: DataServiceStore = {
     center: [30.34, 59.95],
     style: 'mapbox://styles/mapbox/streets-v11',
   },
+  mapRef: null,
+  mapEvent: null,
   filters: {
     types: [],
     payment: [],
@@ -50,109 +56,7 @@ const DEFAULT_STORE: DataServiceStore = {
       'From street',
     ],
   },
-  ecoStations: [
-    {
-      id: 1,
-      name: 'Test eco point #1',
-      geo: {
-        lng: 30.367395705072454,
-        lat: 59.99737697937698,
-      },
-      wasteTypes: ['organic', 'plastic', 'paper', 'metal'],
-      payed: false,
-      delivery: 'none',
-      phone: '(900)111-11-11',
-      address: 'Spb',
-    },
-    {
-      id: 2,
-      name: 'Test eco point #2',
-      geo: {
-        lng: 30.20540431990662,
-        lat: 59.94886059146165,
-      },
-      wasteTypes: ['plastic', 'paper', 'metal'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'none',
-    },
-    {
-      id: 3,
-      name: 'Test eco point #3',
-      geo: {
-        lng: 30.46935736099016,
-        lat: 59.940030060436925,
-      },
-      wasteTypes: ['plastic', 'paper', 'metal'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'apartment',
-    },
-    {
-      id: 4,
-      name: 'Test eco point #4',
-      geo: {
-        lng: 30.367395705072454,
-        lat: 59.85187260839879,
-      },
-      wasteTypes: ['plastic', 'paper', 'metal'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'location',
-    },
-    {
-      id: 5,
-      name: 'Test eco point #5',
-      geo: { lng: 30.175983843433045, lat: 59.84727393859424 },
-      wasteTypes: ['metal'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'none',
-    },
-    {
-      id: 6,
-      name: 'Test eco point #6',
-      geo: { lng: 30.268120863659533, lat: 59.83535258114961 },
-      wasteTypes: ['metal', 'plastic', 'glass'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'none',
-    },
-    {
-      id: 7,
-      name: 'Test eco point #7',
-      geo: { lng: 30.270191896388724, lat: 59.999278210313776 },
-      wasteTypes: ['metal', 'hazardous'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'none',
-    },
-    {
-      id: 8,
-      name: 'Test eco point #8',
-      geo: { lng: 30.488440744063553, lat: 59.88547519514313 },
-      wasteTypes: ['metal', 'glass', 'bulky'],
-      payed: false,
-      delivery: 'none',
-    },
-    {
-      id: 9,
-      name: 'Test eco point #9',
-      geo: { lng: 30.314972836271295, lat: 59.905379260377345 },
-      wasteTypes: ['metal', 'plastic', 'glass'],
-      payed: true,
-      paidComment: '15RUB/kg',
-      delivery: 'street',
-    },
-    {
-      id: 10,
-      name: 'Test eco point #10',
-      geo: { lng: 30.436254320054815, lat: 59.99606182091932 },
-      wasteTypes: ['organic', 'plastic', 'metal', 'bulky'],
-      payed: false,
-      delivery: 'street',
-    },
-  ],
+  ecoStations: [],
 };
 
 @Injectable({
@@ -162,8 +66,44 @@ export class DataService {
   store$!: BehaviorSubject<DataServiceStore>;
   ecoStationsAll: ecoServiceEntity[] = DEFAULT_STORE.ecoStations;
 
-  constructor() {
+  constructor(private readonly http: HttpClient) {
     this.store$ = new BehaviorSubject<DataServiceStore>(DEFAULT_STORE);
+  }
+
+  getEcoStations() {
+    return this.http.get<any>('/api/points').subscribe((ecoStations) => {
+      const store = { ...this.store$.value, ecoStations };
+      this.ecoStationsAll = ecoStations;
+      this.store$.next(store);
+    });
+  }
+
+  setMapRef(mapRef: mapboxgl.Map) {
+    const store = { ...this.store$.value, mapRef };
+    this.store$.next(store);
+  }
+
+  getMapRef$() {
+    return of(this.store$.value.mapRef);
+  }
+
+  setMapEvent(mapEvent: mapboxgl.MapboxEvent) {
+    const store = { ...this.store$.value, mapEvent };
+    this.store$.next(store);
+  }
+
+  getMapEvent$() {
+    return this.store$.asObservable();
+  }
+
+  addService$(service: ecoServiceEntity) {
+    const id = this.store$.value.ecoStations.length + 1;
+    const s = { ...service, id };
+    this.ecoStationsAll.push(s);
+    const store = { ...this.store$.value, ecoStations: this.ecoStationsAll };
+    this.store$.next(store);
+
+    return this.store$.asObservable();
   }
 
   updateFilters(filters: Filters) {
