@@ -51,7 +51,7 @@ export class DialogAddNewServiceComponent implements OnInit {
     this.dataService.addService$(this.servicesForm.value).subscribe((data) => {
       if (data) {
         this.dialogRef.close();
-        console.log('Service added!', data.ecoStations);
+        // console.log('Service added!', data.ecoStations);
       }
     });
   }

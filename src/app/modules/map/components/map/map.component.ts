@@ -44,7 +44,5 @@ export class MapComponent implements OnInit {
     this.eventsSubject.next(event);
   }
 
-  markerClickEventHandler(event: any) {
-    console.log(event);
-  }
+  markerClickEventHandler(event: any) {}
 }

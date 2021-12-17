@@ -71,15 +71,15 @@ export class DialogUpdateServiceComponent implements OnInit {
       phone,
     } = this.servicesForm.value;
 
-    console.log('name', name);
-    console.log('wasteTypes', wasteTypes);
-    console.log('payment', payment);
-    console.log('paidComment', paidComment);
-    console.log('delivery', delivery);
-    console.log('city', city);
-    console.log('email', email);
-    console.log('address', address);
-    console.log('phone', phone);
+    // console.log('name', name);
+    // console.log('wasteTypes', wasteTypes);
+    // console.log('payment', payment);
+    // console.log('paidComment', paidComment);
+    // console.log('delivery', delivery);
+    // console.log('city', city);
+    // console.log('email', email);
+    // console.log('address', address);
+    // console.log('phone', phone);
   }
 
   deleteService(): void {
