@@ -1,7 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ecoServiceEntity } from '../../../../core/interfaces';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/modules/map/services/data.service';
+import { DialogNewServiceConfirmComponent } from '../dialog-new-service-confirm/dialog-new-service-confirm.component';
 
 @Component({
   selector: 'app-dialog-add-new-service',
@@ -9,36 +11,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./dialog-add-new-service.component.css'],
 })
 export class DialogAddNewServiceComponent implements OnInit {
-  wasteTypes: string[] = [
-    'Organic',
-    'Plastic',
-    'Paper/Cardboard',
-    'Hazardous',
-    'Metal',
-    'Glass',
-    'Electrical',
-    'Reusable things',
-    'Bulky/Construction',
-  ];
-  paymentTypes: string[] = ['Paid', 'Free'];
-  deliveryTypes: string[] = [
-    'None',
-    'From appartment door',
-    'From certain location',
-    'From street',
-  ];
-
-  selectedDeliveryType?: string;
-
+  public wasteTypes!: string[];
+  public paymentTypes!: string[];
+  public deliveryTypes!: string[];
+  public selectedDeliveryType?: string;
   public servicesForm!: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddNewServiceComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ecoServiceEntity,
-    private fb: FormBuilder
+    // @Inject(MAT_DIALOG_DATA) public data: ecoServiceEntity,
+    private fb: FormBuilder,
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
+    this.wasteTypes = this.dataService.store$.value.toolbarData.types;
+    this.paymentTypes =
+      this.dataService.store$.value.toolbarData.payment.sort();
+    this.deliveryTypes = this.dataService.store$.value.toolbarData.delivery;
+
     this.servicesForm = this.fb.group({
       name: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       wasteTypes: this.fb.control([], [Validators.required]),
@@ -49,31 +40,20 @@ export class DialogAddNewServiceComponent implements OnInit {
       email: this.fb.control('', []),
       address: this.fb.control('', []),
       phone: this.fb.control('', []),
+      geo: this.fb.control(
+        { lng: 30.406254320054815, lat: 59.95606182091932 },
+        []
+      ),
     });
   }
 
   addService() {
-    const {
-      name,
-      wasteTypes,
-      payment,
-      paidComment,
-      delivery,
-      city,
-      email,
-      address,
-      phone,
-    } = this.servicesForm.value;
-
-    console.log('name', name);
-    console.log('wasteTypes', wasteTypes);
-    console.log('payment', payment);
-    console.log('paidComment', paidComment);
-    console.log('delivery', delivery);
-    console.log('city', city);
-    console.log('email', email);
-    console.log('address', address);
-    console.log('phone', phone);
+    this.dataService.addService$(this.servicesForm.value).subscribe((data) => {
+      if (data) {
+        this.dialogRef.close();
+        console.log('Service added!', data.ecoStations);
+      }
+    });
   }
 
   onNoClick(): void {
