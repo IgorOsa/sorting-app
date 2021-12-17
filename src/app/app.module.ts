@@ -10,6 +10,7 @@ import { fakeBackendProvider } from './core/fake-backend';
 import { HttpClientModule } from '@angular/common/http';
 import { UserIconsComponent } from './core/components/user-icons/user-icons.component';
 import { UserAvatarComponent } from './core/components/user-avatar/user-avatar.component';
+import { GuideLinkComponent } from './core/components/guide-link/guide-link.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UserAvatarComponent } from './core/components/user-avatar/user-avatar.c
     HeaderComponent,
     UserIconsComponent,
     UserAvatarComponent,
+    GuideLinkComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -25,6 +27,7 @@ import { UserAvatarComponent } from './core/components/user-avatar/user-avatar.c
     HttpClientModule,
     SharedModule,
   ],
+  exports: [],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
 })

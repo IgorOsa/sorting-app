@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { PopupComponent } from './components/popup/popup.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MapContainerComponent } from './map-container.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     PopupComponent,
     SidebarComponent,
     ToolbarComponent,
+    MapContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -26,5 +28,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     }),
     SharedModule,
   ],
+  exports: [MapComponent],
 })
 export class MapModule {}

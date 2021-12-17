@@ -1,0 +1,57 @@
+.dialog-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.mat-dialog-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #88410E;
+}
+
+h1 {
+  width: 280px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.service-name {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.mat-dialog-content {
+  padding: 0 !important;
+  text-align: center;
+  font-size: 16px;
+  color: #484847;
+}
+
+.mat-dialog-actions {
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mat-button {
+  width: 120px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.remove-service {
+  background: #99241D !important;
+  color: #FFFFFF !important;
+}
+
+.dialog-close {
+  border: 1px solid #767676;
+  background: #FFD8BC;
+  color: #3D3D3D;
+}

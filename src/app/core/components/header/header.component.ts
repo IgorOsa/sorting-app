@@ -1,6 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -16,7 +14,6 @@ export class HeaderComponent {
   constructor(private router: Router, private authService: AuthService) {
     this.authService.currentUser.subscribe((user) => {
       this.isLoggedIn = !!user.access_token;
-      console.log(user);
     });
   }
 

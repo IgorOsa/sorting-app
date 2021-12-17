@@ -34,9 +34,13 @@ export class LoginComponent implements OnInit {
     const { username, password } = this.loginForm.value;
 
     if (username && password) {
-      this.authService.login(username, password).subscribe(() => {
+      this.authService.login(username, password).subscribe((data) => {
         // this.snackbarService.open('Logged  in.');
-        this.router.navigateByUrl('/');
+        if (data?.admin) {
+          this.router.navigateByUrl('/admin');
+        } else {
+          this.router.navigateByUrl('/');
+        }
       });
     }
   }

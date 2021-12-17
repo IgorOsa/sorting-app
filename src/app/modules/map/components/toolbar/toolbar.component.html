@@ -1,71 +1,73 @@
 <mat-toolbar class="toolbar">
-  <button
-    mat-icon-button
-    class="icon__types"
-    aria-label="Waste types filter"
-    [matMenuTriggerFor]="typesMenu"
-    (click)="toggleMenu('types')"
-  >
-    <img class="toolbar__btn_icon" src="/assets/types.svg" alt="Types" />
-    <span class="toolbar__btn_text">Types</span>
-  </button>
-  <mat-menu #typesMenu="matMenu" yPosition="above" [formGroup]="typesFormGroup">
-    <section class="toolbar-menu" [formGroup]="typesFormGroup">
-      <p *ngFor="let type of toolbarData.types">
-        <mat-checkbox
-          formControlName="{{ type }}"
+  <form [formGroup]="filtersFormGroup">
+    <button
+      mat-icon-button
+      class="icon__types"
+      aria-label="Waste types filter"
+      [matMenuTriggerFor]="typesMenu"
+    >
+      <img class="toolbar__btn_icon" src="/assets/types.svg" alt="Types" />
+      <span class="toolbar__btn_text">Types</span>
+    </button>
+    <mat-menu #typesMenu="matMenu" yPosition="above">
+      <mat-selection-list class="toolbar-menu" formControlName="types">
+        <mat-list-option
+          *ngFor="let type of toolbarData.types"
+          [value]="type"
+          (click)="filterChangeHandler()"
           (click)="$event.stopPropagation()"
-          >{{ type }}</mat-checkbox
+          [checkboxPosition]="'before'"
         >
-      </p>
-    </section>
-  </mat-menu>
+          {{ type }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-menu>
 
-  <button
-    mat-icon-button
-    class="icon__payment"
-    aria-label="Waste payment filter"
-    [matMenuTriggerFor]="paymentMenu"
-    (click)="toggleMenu('payment')"
-  >
-    <img class="toolbar__btn_icon" src="/assets/payment.svg" alt="Types" />
-    <span class="toolbar__btn_text">Payment</span>
-  </button>
-  <mat-menu #paymentMenu="matMenu" yPosition="above">
-    <section class="toolbar-menu" [formGroup]="paymentFormGroup">
-      <p *ngFor="let p of toolbarData.payment">
-        <mat-checkbox
-          formControlName="{{ p }}"
+    <button
+      mat-icon-button
+      class="icon__payment"
+      aria-label="Waste payment filter"
+      [matMenuTriggerFor]="paymentMenu"
+    >
+      <img class="toolbar__btn_icon" src="/assets/payment.svg" alt="Types" />
+      <span class="toolbar__btn_text">Payment</span>
+    </button>
+    <mat-menu #paymentMenu="matMenu" yPosition="above">
+      <mat-selection-list class="toolbar-menu" formControlName="payment">
+        <mat-list-option
+          *ngFor="let payment of toolbarData.payment"
+          [value]="payment"
+          (click)="filterChangeHandler()"
           (click)="$event.stopPropagation()"
+          [checkboxPosition]="'before'"
         >
-          {{ p }}
-        </mat-checkbox>
-      </p>
-    </section>
-  </mat-menu>
+          {{ payment }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-menu>
 
-  <button
-    mat-icon-button
-    class="icon__delivery"
-    aria-label="Waste delivery icon"
-    [matMenuTriggerFor]="deliveryMenu"
-    (click)="toggleMenu('delivery')"
-  >
-    <img class="toolbar__btn_icon" src="/assets/delivery.svg" alt="Types" />
-    <span class="toolbar__btn_text">Delivery</span>
-  </button>
-  <mat-menu #deliveryMenu="matMenu" yPosition="above">
-    <section class="toolbar-menu">
-      <mat-radio-group [(ngModel)]="deliveryChecked">
+    <button
+      mat-icon-button
+      class="icon__delivery"
+      aria-label="Waste delivery icon"
+      [matMenuTriggerFor]="deliveryMenu"
+    >
+      <img class="toolbar__btn_icon" src="/assets/delivery.svg" alt="Types" />
+      <span class="toolbar__btn_text">Delivery</span>
+    </button>
+    <mat-menu #deliveryMenu="matMenu" yPosition="above" class="toolbar-menu">
+      <mat-radio-group formControlName="delivery">
         <mat-radio-button
-          *ngFor="let d of toolbarData.delivery"
+          *ngFor="let delivery of toolbarData.delivery"
           class="toolbar__radio-button"
-          [value]="d"
+          (click)="filterChangeHandler(delivery)"
           (click)="$event.stopPropagation()"
+          [checked]="this.filtersFormGroup.controls.delivery.value === delivery"
+          (change)="handleRadioChange(delivery)"
         >
-          {{ d }}
+          {{ delivery }}
         </mat-radio-button>
       </mat-radio-group>
-    </section>
-  </mat-menu>
+    </mat-menu>
+  </form>
 </mat-toolbar>
